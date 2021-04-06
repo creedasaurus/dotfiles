@@ -35,7 +35,7 @@
                 ./modules/fonts.nix
                 ./modules/home-manager.nix
                 ./modules/fish.nix
-                ./modules/neovim.nix
+                ./modules/nvim.nix
               ];
             };
           system = "x86_64-linux";
