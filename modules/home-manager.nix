@@ -15,6 +15,7 @@
 
   home.packages = with pkgs; [
     htop
+    bat
     nodejs
     deno
     python

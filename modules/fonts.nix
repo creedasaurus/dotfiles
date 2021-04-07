@@ -1,12 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # (nerdfonts.override { 
-    #   fonts = [ 
-    #     "FiraCode" 
-    #     "DroidSansMono" 
-    #   ]; 
-    # })
+    # I like fonts, ok.
     nerdfonts
   ];
 }

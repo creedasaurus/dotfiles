@@ -36,6 +36,7 @@
                 ./modules/home-manager.nix
                 ./modules/zsh.nix
                 ./modules/nvim.nix
+                ./modules/vscode.nix
               ];
             };
           system = "x86_64-linux";
