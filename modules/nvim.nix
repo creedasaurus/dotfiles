@@ -1,5 +1,9 @@
 { pkgs, inputs, ... }:
 {
+	home.packages = with pkgs; [
+		gopls
+	];
+
 	programs.neovim = {
 		enable = true;
 		viAlias = true;
@@ -8,6 +12,7 @@
 
 		withPython3 = true;
 
-		# extraConfig = builtins.readFile ../config/nvim/init.vim;
 	};
+
+	xdg.configFile."nvim/init.lua".source = ../configs/nvim/init.lua;
 }

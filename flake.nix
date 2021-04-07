@@ -31,12 +31,13 @@
               nixpkgs.config = import ./configs/nix/config.nix;
               nixpkgs.overlays = overlays;
               imports = [
-                ./modules/git.nix
-                ./modules/fonts.nix
                 ./modules/home-manager.nix
                 ./modules/zsh.nix
+                ./modules/fonts.nix
+                ./modules/git.nix
                 ./modules/nvim.nix
-                ./modules/vscode.nix
+                ./modules/chat.nix
+                ./modules/media.nix
               ];
             };
           system = "x86_64-linux";

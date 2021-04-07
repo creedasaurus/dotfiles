@@ -14,21 +14,36 @@
   home.extraOutputsToInstall = [ "man" ];
 
   home.packages = with pkgs; [
+    # basic utils
     htop
-    bat
+    nmap
+    rsync
+    mosh
+    tmux
+    tree
+    fzf
+    wget
+    neofetch
+    curl
+    coreutils
+    less
+    watch
+    unzip
+    zip
+    # languages
+    go
     nodejs
     deno
     python
-    vscode
-    go
+    llvm
+    gdb
+    # Editor
+    vscodium
+    # Rust things
     exa
-    fzf
-    tmux
-    wget
-    tree
-    nmap
-    mosh
-    rsync
-    neofetch
+    fd
+    bat
+    du-dust
+    ripgrep
   ];
 }
