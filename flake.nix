@@ -34,7 +34,7 @@
                 ./modules/git.nix
                 ./modules/fonts.nix
                 ./modules/home-manager.nix
-                ./modules/fish.nix
+                ./modules/zsh.nix
                 ./modules/nvim.nix
               ];
             };
