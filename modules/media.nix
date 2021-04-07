@@ -4,7 +4,6 @@
     handbrake
     vlc
     gimp
-    steam
     spotify
   ];
 }
