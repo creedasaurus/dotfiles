@@ -54,7 +54,7 @@
     go
     nodejs
     deno
-    python
+    python3
     llvm
     gdb
     # Editor
