@@ -15,6 +15,21 @@
     profileExtra = ''
 # Npm
 export PATH=$HOME/.npm-global:$PATH
+
+# Nix
+. $HOME/.nix-profile/etc/profile.d/nix.sh
+
+# JVM
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Rust
+source "$HOME/.cargo/env"
+
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
     '';
 
     oh-my-zsh = {

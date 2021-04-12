@@ -24,6 +24,27 @@
     in
     {
       homeConfigurations = {
+        macbook-pro = inputs.home-manager.lib.homeManagerConfiguration {
+          configuration = { pkgs, config, ... }:
+            {
+              xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
+              nixpkgs.config = import ./configs/nix/config.nix;
+              nixpkgs.overlays = overlays;
+              imports = [
+                ./modules/home-manager.nix
+                ./modules/zsh.nix
+                ./modules/fonts.nix
+                ./modules/git.nix
+                ./modules/nvim.nix
+                ./modules/nix.nix
+              ];
+              # programs.zsh.initExtra = builtins.readFile ./configs/zsh/macbook-pro_zshrc.zsh;
+              # xdg.configFile."terminfo".source = ./configs/terminfo/terminfo_mac;
+            };
+          system = "x86_64-darwin";
+          homeDirectory = "/Users/creedh";
+          username = "creedh";
+        };
         linux-desktop = inputs.home-manager.lib.homeManagerConfiguration {
           configuration = { pkgs, ... }:
             {
@@ -45,6 +66,7 @@
           username = "creedh";
         };
       };
+      macbook-pro = self.homeConfigurations.macbook-pro.activationPackage;
       linux-desktop = self.homeConfigurations.linux-desktop.activationPackage;
     };
 }
