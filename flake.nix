@@ -37,6 +37,7 @@
                 ./modules/git.nix
                 ./modules/nvim.nix
                 ./modules/nix.nix
+                ./modules/alacritty.nix
               ];
               # programs.zsh.initExtra = builtins.readFile ./configs/zsh/macbook-pro_zshrc.zsh;
               # xdg.configFile."terminfo".source = ./configs/terminfo/terminfo_mac;
