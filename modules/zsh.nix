@@ -13,11 +13,18 @@
 
 # magic npm thing that I probably shouldn't do
     profileExtra = ''
+# Nix
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+
 # Npm
 export PATH=$HOME/.npm-global:$PATH
 
-# Nix
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+# Ruby
+eval "$(rbenv init -)"
+
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 
 # JVM
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -34,8 +41,13 @@ export PATH="$GOBIN:$PATH"
 
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
+      # theme = "robbyrussell";
     };
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.fzf = {

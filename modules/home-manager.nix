@@ -35,6 +35,7 @@
 
   home.packages = with pkgs; [
     # basic utils
+    awscli
     htop
     nmap
     rsync
@@ -50,17 +51,26 @@
     watch
     unzip
     zip
+    graphviz
+    jq
+    ncurses
+    protobuf
+    tig
+    zlib
+    readline
+    watch
     # languages
     go
     nodejs
     deno
-    python3
     llvm
     gdb
     # Editor
-    vscodium
+    vscode
+    emacs
     # Rust things
     exa
+    tokei
     fd
     bat
     du-dust
