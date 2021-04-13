@@ -75,5 +75,8 @@
     bat
     du-dust
     ripgrep
+    # go tools
+    restic
+    gopls
   ];
 }
