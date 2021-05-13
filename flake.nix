@@ -32,6 +32,7 @@
               nixpkgs.overlays = overlays;
               imports = [
                 ./modules/home-manager.nix
+                # ./modules/home-manager.macos.nix
                 ./modules/zsh.nix
                 ./modules/fonts.nix
                 ./modules/git.nix
@@ -39,6 +40,7 @@
                 ./modules/nix.nix
                 ./modules/rust.nix
                 ./modules/alacritty.nix
+		            ./modules/direnv.nix
               ];
               # programs.zsh.initExtra = builtins.readFile ./configs/zsh/macbook-pro_zshrc.zsh;
               # xdg.configFile."terminfo".source = ./configs/terminfo/terminfo_mac;
@@ -55,6 +57,7 @@
               nixpkgs.overlays = overlays;
               imports = [
                 ./modules/home-manager.nix
+                ./modules/home-manager.linux-desktop.nix
                 ./modules/zsh.nix
                 ./modules/fonts.nix
                 ./modules/git.nix
@@ -67,8 +70,29 @@
           homeDirectory = "/home/creedh";
           username = "creedh";
         };
+        linux-server = inputs.home-manager.lib.homeManagerConfiguration {
+          configuration = { pkgs, ... }:
+            {
+              xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
+              nixpkgs.config = import ./configs/nix/config.nix;
+              nixpkgs.overlays = overlays;
+              imports = [
+                ./modules/home-manager.nix
+                ./modules/zsh.nix
+                ./modules/git.nix
+                ./modules/nvim.nix
+                ./modules/nix.nix
+                ./modules/rust.nix
+		            ./modules/direnv.nix
+              ];
+            };
+          system = "x86_64-linux";
+          homeDirectory = "/home/creedh";
+          username = "creedh";
+        };
       };
       macbook-pro = self.homeConfigurations.macbook-pro.activationPackage;
       linux-desktop = self.homeConfigurations.linux-desktop.activationPackage;
+      linux-server = self.homeConfigurations.linux-server.activationPackage;
     };
 }

@@ -16,13 +16,12 @@ brew update
 
 PACKAGES=(
     asdf
+    borgbackup/tap/borgbackup-fuse
+    gpg
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
-# any additional steps you want to add here
-# link readline
-brew link --force readline
 
 echo "Installing casks..."
 CASKS=(
@@ -49,6 +48,7 @@ CASKS=(
     fork
     macfuse
     sublime-text
+    visual-studio-code
     wireshark
 
     # macos
@@ -60,10 +60,13 @@ CASKS=(
     brave-browser
     google-chrome
     firefox
+
+    # other
+    vorta
 )
 
 echo "Installing cask apps..."
-# brew cask install ${CASKS[@]}
+brew install --cask ${CASKS[@]}
 
 echo "Cleaning up..."
 brew cleanup

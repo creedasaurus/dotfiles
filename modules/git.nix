@@ -11,10 +11,16 @@
       "*~"
       ".DS_Store"
       "*.swp"
+      "*.iml"
+      "**/build"
     ];
     
     aliases = {
       lg = "log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+    };
+
+    extraConfig = {
+      http = { postBuffer = 524288000; };
     };
 
     delta = {
