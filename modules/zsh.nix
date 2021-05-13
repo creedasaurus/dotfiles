@@ -39,7 +39,7 @@
 # magic npm thing that I probably shouldn't do
     profileExtra = ''
 # Nix
-source $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # Npm
 export PATH=$HOME/.npm-global:$PATH
