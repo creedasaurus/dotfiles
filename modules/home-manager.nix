@@ -1,6 +1,14 @@
 { config, pkgs, lib, ... }:
 {
   home.stateVersion = "20.09";
+  # home.language = {
+  #   base = "en_US.UTF-8";
+  #   ctype = "en_US.UTF-8";
+  # };
+
+  # home.sessionVariables = {
+  #   LANG = "en_US.UTF-8";
+  # };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -9,11 +17,9 @@
 
   home.packages = with pkgs; [
     # basic utils
-    awscli
     htop
     nmap
     rsync
-    mosh
     tmux
     tree
     fzf
@@ -37,6 +43,7 @@
     direnv
     scrcpy
     eternal-terminal
+    stdenv.cc.cc.lib
     # languages
     go
     deno
