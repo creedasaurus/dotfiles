@@ -20,6 +20,9 @@
       overlays = [
         inputs.neovim-nightly-overlay.overlay
         (final: prev: { LS_COLORS = inputs.LS_COLORS; })
+        (self: super: {
+          zsh-powerlevel10k = super.callPackage ./packages/powerlevel10k/powerlevel10k.nix {};
+        })
       ];
     in
     {
