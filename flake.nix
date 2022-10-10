@@ -9,27 +9,75 @@
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, darwin, home-manager, flake-utils, ... }:
     let
-      system = "aarch64-darwin";
-    in
-    {
-      darwinConfigurations = {
-        haymd = darwin.lib.darwinSystem {
-          inherit system;
-          modules = [
-            ./darwin-configuration.nix
-            home-manager.darwinModules.home-manager
+      inherit (flake-utils.lib) eachSystemMap;
+
+      isDarwin = system: (builtins.elem system inputs.nixpkgs.lib.platforms.darwin);
+      homePrefix = system: if isDarwin system then "/Users" else "/home";
+      defaultSystems = [ "aarch64-linux" "aarch64-darwin" "x86_64-darwin" "x86_64-linux" ];
+
+      # generate a home-manager configuration usable on any unix system
+      # with overlays and any extraModules applied
+      # Thanks to https://github.com/kclejeune/system
+      mkHomeConfig =
+        { username
+        , system ? "x86_64-linux"
+        , nixpkgs ? inputs.nixpkgs
+        , stable ? inputs.stable
+        , baseModules ? [
+            ./modules/home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.haymd = {
-                imports = [ ./home.nix ];
+              home = {
+                inherit username;
+                homeDirectory = "${homePrefix system}/${username}";
+                sessionVariables = {
+                  NIX_PATH =
+                    "nixpkgs=${nixpkgs}:stable=${stable}\${NIX_PATH:+:}$NIX_PATH";
+                };
               };
             }
+          ]
+        , extraModules ? [ ]
+        }:
+        inputs.home-manager.lib.homeManagerConfiguration rec {
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+          extraSpecialArgs = { inherit self inputs nixpkgs; };
+          modules = baseModules ++ extraModules;
+        };
+    in
+    {
+      # Keeping the nix-darwin config separate from home-managers on purpose here.
+      # I can then manage setting up "system" level stuff separate from home.
+      # Yes, nix-darwin can execute home-manager for me, but I prefer to inspect
+      # the output/result before applying it and I dont get that with nix-darwin
+      darwinConfigurations = {
+        haymd = darwin.lib.darwinSystem {
+          inherit (inputs) nixpkgs;
+          system = "x86_64-darwin";
+          modules = [
+            ./darwin-configuration.nix
           ];
+        };
+      };
+
+      # The main configurations I can apply.
+      # nix build .#homeConfigurations.workServer.activationPackage for example
+      homeConfigurations = {
+        homeServer = mkHomeConfig {
+          username = "creedh";
+          system = "x86_64-darwin";
+          extraModules = [ ./profiles/home-manager/personal.nix ];
+        };
+        workServer = mkHomeConfig {
+          username = "haymd";
+          system = "x86_64-darwin";
+          extraModules = [ ./profiles/home-manager/work.nix ];
         };
       };
     };
