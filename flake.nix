@@ -20,6 +20,23 @@
       homePrefix = system: if isDarwin system then "/Users" else "/home";
       defaultSystems = [ "aarch64-linux" "aarch64-darwin" "x86_64-darwin" "x86_64-linux" ];
 
+      # generate a base darwin configuration with the
+      # specified hostname, overlays, and any extraModules applied
+      mkDarwinConfig =
+        { system ? "aarch64-darwin"
+        , nixpkgs ? inputs.nixpkgs
+        , stable ? inputs.stable
+        , baseModules ? [
+            ./modules/darwin
+          ]
+        , extraModules ? [ ]
+        }:
+        inputs.darwin.lib.darwinSystem {
+          inherit system;
+          modules = baseModules ++ extraModules;
+          specialArgs = { inherit self inputs nixpkgs; };
+        };
+
       # generate a home-manager configuration usable on any unix system
       # with overlays and any extraModules applied
       # Thanks to https://github.com/kclejeune/system
@@ -57,12 +74,8 @@
       # Yes, nix-darwin can execute home-manager for me, but I prefer to inspect
       # the output/result before applying it and I dont get that with nix-darwin
       darwinConfigurations = {
-        haymd = darwin.lib.darwinSystem {
-          inherit (inputs) nixpkgs;
-          system = "x86_64-darwin";
-          modules = [
-            ./darwin-configuration.nix
-          ];
+        workM1 = mkDarwinConfig {
+          extraModules = [];
         };
       };
 
@@ -74,7 +87,7 @@
           system = "x86_64-darwin";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
-        workServer = mkHomeConfig {
+        workM1 = mkHomeConfig {
           username = "haymd";
           system = "x86_64-darwin";
           extraModules = [ ./profiles/home-manager/work.nix ];
