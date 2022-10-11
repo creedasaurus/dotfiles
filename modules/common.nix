@@ -1,8 +1,6 @@
 { self, inputs, config, lib, pkgs, ... }: {
   imports = [ ./primary.nix ./nixpkgs.nix ];
 
-  nixpkgs.overlays = builtins.attrValues self.overlays;
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -30,33 +28,11 @@
 
   # environment setup
   environment = {
-    systemPackages = with pkgs; [
-      # editors
-      neovim
-
-      # standard toolset
-      coreutils-full
-      curl
-      wget
-      git
-      jq
-
-      # helpful shell stuff
-      bat
-      fzf
-      ripgrep
-
-      # languages
-      python3
-      ruby
-    ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
       nixpkgs.source = "${inputs.nixpkgs}";
-      stable.source = "${inputs.stable}";
     };
     # list of acceptable shells in /etc/shells
-    shells = with pkgs; [ bash zsh fish ];
   };
 
   fonts = {

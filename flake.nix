@@ -63,7 +63,6 @@
         inputs.home-manager.lib.homeManagerConfiguration rec {
           pkgs = import nixpkgs {
             inherit system;
-            overlays = builtins.attrValues self.overlays;
           };
           extraSpecialArgs = { inherit self inputs nixpkgs; };
           modules = baseModules ++ extraModules;
@@ -76,7 +75,7 @@
       # the output/result before applying it and I dont get that with nix-darwin
       darwinConfigurations = {
         workM1 = mkDarwinConfig {
-          extraModules = [];
+          extraModules = [ ./profiles/work.nix ];
         };
       };
 

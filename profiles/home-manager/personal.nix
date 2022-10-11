@@ -2,7 +2,7 @@
   # home.packages = with pkgs; [];
 
   programs.git = {
-    userEmail = "home@email.com";
-    userName = "Creed at personal";
+    userEmail = "creedasaurus@gmail.com";
+    userName = "Creed Haymond";
   };
 }

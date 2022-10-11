@@ -4,10 +4,20 @@ let
     ls = "exa";
     la = "exa -laF";
     gs = "git status";
+    bb = "brazil-build";
+    brc = "brazil-recursive-cmd";
+    bbb = "brc --allPackages brazil-build";
+    bws = "brazil ws";
   };
 in
 {
-  home.packages = [ pkgs.tree ];
+  home.packages = with pkgs; [
+    neofetch
+    tree
+    tokei
+    fzf
+    zsh
+  ];
 
   programs = {
     fzf = rec {
@@ -54,8 +64,8 @@ in
 
       initExtraBeforeCompInit = ''
         fpath+=(
-          $BREW_PREFIX/share/zsh/site-functions
-          $BREW_PREFIX/share/zsh/functions
+          $HOMEBREW_PREFIX/share/zsh/site-functions
+          $HOMEBREW_PREFIX/share/zsh/functions
           $HOME/.amzn-zsh-funcs/zsh/functions/5.8
           $HOME/.zsh/completion
         )
@@ -88,6 +98,10 @@ in
         export ANDROID_HOME="/Users/haymd/Library/Android/sdk"
         export PATH="$ANDROID_HOME/platform-tools:$PATH"
         export PATH="$ANDROID_HOME/tools:$PATH"
+
+        #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+        export SDKMAN_DIR="$HOME/.sdkman"
+        [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
         ${lib.optionalString pkgs.stdenvNoCC.isLinux "[[ -e /etc/profile ]] && source /etc/profile"}
       '';

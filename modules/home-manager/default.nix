@@ -17,6 +17,8 @@ in
     path = "${config.home.homeDirectory}/.nixpkgs/modules/home-manager";
   };
 
+  xdg.enable = true;
+
   home = {
     stateVersion = "22.05";
     sessionVariables = {
@@ -26,11 +28,9 @@ in
 
     # define package definitions for current user environment
     packages = with pkgs; [
+      dua
       ripgrep
-      tree
-      fzf
       wget
-      neofetch
       curl
       coreutils
       less
@@ -39,15 +39,15 @@ in
       zip
       graphviz
       jq
+      yq
       ncurses
       protobuf
-      tig
       zlib
       fd
       bat
       rsync
+      rustup
       nix-zsh-completions
-      zsh
       exa
       hyperfine
       neovim

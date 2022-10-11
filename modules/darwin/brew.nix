@@ -3,15 +3,9 @@
     enable = true;
 
     onActivation = {
-      cleanup = "zap";
       autoUpdate = true;
+      upgrade = true;
     };
-
-    brews = [
-      "amazon/amazon/env-improvement"
-      "amazon/amazon/ninja-dev-sync"
-      "aws/tap/aws-sam-cli"
-     ];
 
     taps = [
       "aws/tap"
@@ -21,12 +15,23 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "mistertea/et"
+      "mutagen-io/mutagen"
+      "sdkman/tap"
       {
         name = "amazon/amazon";
         clone_target = "ssh://git.amazon.com/pkg/HomebrewAmazon";
         force_auto_update = true;
       }
     ];
+
+    brews = [
+      "amazon/amazon/env-improvement"
+      "amazon/amazon/ninja-dev-sync"
+      "aws/tap/aws-sam-cli"
+      "mutagen-io/mutagen/mutagen"
+      "sdkman-cli"
+    ];
+
     casks = [
       "1password"
       "appcleaner"

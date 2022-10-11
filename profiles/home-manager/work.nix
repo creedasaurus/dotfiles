@@ -2,8 +2,19 @@
   # home.packages = with pkgs; [];
 
   programs.git = {
-    lfs.enable = true;
-    userEmail = "WORK@email.com";
-    userName = "Creed At WORK";
+    userEmail = "haymd@amazon.com";
+    userName = "Creed Haymond";
+
+    includes = [
+      {
+        condition = "gitdir:~/personal/";
+        contents = {
+          user = {
+            name = "Creed Haymond";
+            email = "creedasaurus@gmail.com";
+          };
+        };
+      }
+    ];
   };
 }

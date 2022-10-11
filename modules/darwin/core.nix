@@ -1,7 +1,4 @@
 { inputs, config, pkgs, ... }:
-let
-  inherit (pkgs.stdenvNoCC) isAarch64 isAarch32;
-in
 {
   # environment setup
   environment = {
@@ -13,8 +10,6 @@ in
     # packages installed in system profile
     # systemPackages = [ ];
   };
-
-  homebrew.brewPrefix = if isAarch64 || isAarch32 then "/opt/homebrew/bin" else "/usr/local/bin";
 
   # auto manage nixbld users with nix darwin
   nix = {
