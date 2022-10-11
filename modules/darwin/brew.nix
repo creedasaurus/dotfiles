@@ -1,10 +1,12 @@
 { inputs, config, pkgs, ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = false;
-    global = {
-      brewfile = true;
+
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
     };
+
     brews = [
       "amazon/amazon/env-improvement"
       "amazon/amazon/ninja-dev-sync"

@@ -25,8 +25,8 @@
       mkDarwinConfig =
         { system ? "aarch64-darwin"
         , nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.stable
         , baseModules ? [
+            home-manager.darwinModules.home-manager
             ./modules/darwin
           ]
         , extraModules ? [ ]
@@ -37,6 +37,7 @@
           specialArgs = { inherit self inputs nixpkgs; };
         };
 
+
       # generate a home-manager configuration usable on any unix system
       # with overlays and any extraModules applied
       # Thanks to https://github.com/kclejeune/system
@@ -44,7 +45,6 @@
         { username
         , system ? "x86_64-linux"
         , nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.stable
         , baseModules ? [
             ./modules/home-manager
             {
@@ -53,7 +53,7 @@
                 homeDirectory = "${homePrefix system}/${username}";
                 sessionVariables = {
                   NIX_PATH =
-                    "nixpkgs=${nixpkgs}:stable=${stable}\${NIX_PATH:+:}$NIX_PATH";
+                    "nixpkgs=${nixpkgs}:\${NIX_PATH:+:}$NIX_PATH";
                 };
               };
             }
@@ -63,6 +63,7 @@
         inputs.home-manager.lib.homeManagerConfiguration rec {
           pkgs = import nixpkgs {
             inherit system;
+            overlays = builtins.attrValues self.overlays;
           };
           extraSpecialArgs = { inherit self inputs nixpkgs; };
           modules = baseModules ++ extraModules;
@@ -79,17 +80,37 @@
         };
       };
 
+      darwinConfigurations = {
+        randall = mkDarwinConfig {
+          extraModules = [ ./profiles/personal.nix ./modules/darwin/apps.nix ];
+        };
+        work = mkDarwinConfig { extraModules = [ ./profiles/work.nix ]; };
+        randall-intel = mkDarwinConfig {
+          system = "x86_64-darwin";
+          extraModules = [ ./profiles/personal.nix ./modules/darwin/apps.nix ];
+        };
+        work-intel = mkDarwinConfig {
+          system = "x86_64-darwin";
+          extraModules = [ ./profiles/work.nix ];
+        };
+      };
+
       # The main configurations I can apply.
       # nix build .#homeConfigurations.workServer.activationPackage for example
       homeConfigurations = {
-        homeServer = mkHomeConfig {
+        workServer = mkHomeConfig {
+          username = "haymd";
+          system = "x86_64-linux";
+          extraModules = [ ./profiles/home-manager/work.nix ];
+        };
+        workPro = mkHomeConfig {
           username = "creedh";
           system = "x86_64-darwin";
-          extraModules = [ ./profiles/home-manager/personal.nix ];
+          extraModules = [ ./profiles/home-manager/work.nix ];
         };
         workM1 = mkHomeConfig {
           username = "haymd";
-          system = "x86_64-darwin";
+          system = "aarch64-darwin";
           extraModules = [ ./profiles/home-manager/work.nix ];
         };
       };
