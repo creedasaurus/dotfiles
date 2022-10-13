@@ -30,6 +30,8 @@
       "aws/tap/aws-sam-cli"
       "mutagen-io/mutagen/mutagen"
       "sdkman-cli"
+      "asdf"
+      "mint"
     ];
 
     casks = [
@@ -55,6 +57,7 @@
       "jetbrains-toolbox"
       "kap"
       "kitty"
+      "keepingyouawake"
       "obsidian"
       "raycast"
       "obs"

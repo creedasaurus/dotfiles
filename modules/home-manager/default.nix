@@ -38,6 +38,7 @@ in
       unzip
       zip
       graphviz
+      gawk
       jq
       yq
       ncurses

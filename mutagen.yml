@@ -1,0 +1,12 @@
+# Synchronize code to the shared Docker volume via the Mutagen service.
+sync:
+  defaults:
+    flushOnCreate: true
+    symlink:
+      mode: "ignore"
+    ignore:
+      vcs: true
+  dotfiles:
+    alpha: "."
+    beta: "SOME_SERVER"
+    mode: "two-way-resolved"

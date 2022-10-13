@@ -14,11 +14,8 @@
 
   outputs = inputs@{ self, darwin, home-manager, flake-utils, ... }:
     let
-      inherit (flake-utils.lib) eachSystemMap;
-
       isDarwin = system: (builtins.elem system inputs.nixpkgs.lib.platforms.darwin);
       homePrefix = system: if isDarwin system then "/Users" else "/home";
-      defaultSystems = [ "aarch64-linux" "aarch64-darwin" "x86_64-darwin" "x86_64-linux" ];
 
       # generate a base darwin configuration with the
       # specified hostname, overlays, and any extraModules applied
@@ -75,21 +72,6 @@
       # the output/result before applying it and I dont get that with nix-darwin
       darwinConfigurations = {
         workM1 = mkDarwinConfig {
-          extraModules = [ ./profiles/work.nix ];
-        };
-      };
-
-      darwinConfigurations = {
-        randall = mkDarwinConfig {
-          extraModules = [ ./profiles/personal.nix ./modules/darwin/apps.nix ];
-        };
-        work = mkDarwinConfig { extraModules = [ ./profiles/work.nix ]; };
-        randall-intel = mkDarwinConfig {
-          system = "x86_64-darwin";
-          extraModules = [ ./profiles/personal.nix ./modules/darwin/apps.nix ];
-        };
-        work-intel = mkDarwinConfig {
-          system = "x86_64-darwin";
           extraModules = [ ./profiles/work.nix ];
         };
       };

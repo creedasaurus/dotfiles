@@ -68,6 +68,24 @@ in
       };
 
       shellAliases = aliases;
+      
+      profileExtra = ''
+        if [ -f "/opt/homebrew/bin/brew" ]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        elif [ -f "/usr/local/bin/brew" ]; then
+          eval "$(/usr/local/bin/brew shellenv)"
+        elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+          eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+        fi
+
+        export PATH="$HOME/.local/bin:$PATH"
+        export PATH="$HOME/.toolbox/bin:$PATH"
+        export ANDROID_HOME="/Users/haymd/Library/Android/sdk"
+        export PATH="$ANDROID_HOME/platform-tools:$PATH"
+        export PATH="$ANDROID_HOME/tools:$PATH"
+
+        ${lib.optionalString pkgs.stdenvNoCC.isLinux "[[ -e /etc/profile ]] && source /etc/profile"}
+      '';
 
       initExtraBeforeCompInit = ''
         fpath+=(
@@ -90,31 +108,19 @@ in
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
       '';
 
-      profileExtra = ''
-        if [ -f "/opt/homebrew/bin/brew" ]; then
-          eval "$(/opt/homebrew/bin/brew shellenv)"
-        elif [ -f "/usr/local/bin/brew" ]; then
-          eval "$(/usr/local/bin/brew shellenv)"
-        elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-          eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-        fi
-
-        export PATH="$HOME/.local/bin:$PATH"
-        export PATH="$HOME/.toolbox/bin:$PATH"
-        export ANDROID_HOME="/Users/haymd/Library/Android/sdk"
-        export PATH="$ANDROID_HOME/platform-tools:$PATH"
-        export PATH="$ANDROID_HOME/tools:$PATH"
-
+      initExtra = ''
         # SDKMAN
         sdkman_brew_dir="$HOMEBREW_PREFIX/opt/sdkman-cli/libexec"
         export SDKMAN_DIR="$HOME/.sdkman"
         [[ -s "$sdkman_brew_dir/bin/sdkman-init.sh" ]] && source "$sdkman_brew_dir/bin/sdkman-init.sh"
-
-        ${lib.optionalString pkgs.stdenvNoCC.isLinux "[[ -e /etc/profile ]] && source /etc/profile"}
       '';
+
 
       oh-my-zsh = {
         enable = true;
+        plugins = [
+          "asdf"
+        ];
       };
     };
 

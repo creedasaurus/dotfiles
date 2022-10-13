@@ -33,6 +33,7 @@
       nixpkgs.source = "${inputs.nixpkgs}";
     };
     # list of acceptable shells in /etc/shells
+    shells = with pkgs; [ bash zsh fish dash ksh ];
   };
 
   # fonts = {
