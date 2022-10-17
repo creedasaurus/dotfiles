@@ -1,23 +1,15 @@
 { self, inputs, config, pkgs, ... }:
-let
-  homeDir = config.home.homeDirectory;
-in
 {
   imports = [
     ./git.nix
     ./cli
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  xdg.enable = true;
 
   programs.home-manager = {
     enable = true;
-    path = "${config.home.homeDirectory}/.nixpkgs/modules/home-manager";
   };
-
-  xdg.enable = true;
 
   home = {
     stateVersion = "22.05";
@@ -26,7 +18,6 @@ in
       VISUAL = "nvim";
     };
 
-    # define package definitions for current user environment
     packages = with pkgs; [
       dua
       ripgrep
@@ -38,6 +29,7 @@ in
       unzip
       zip
       graphviz
+      gawk
       jq
       yq
       ncurses
@@ -51,6 +43,7 @@ in
       exa
       hyperfine
       neovim
+      tmux
       zsh-powerlevel10k
       nix-top
       nixpkgs-fmt

@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }: {
-  
+
   home.packages = with pkgs; [
-      git
-      gitui
-      tig
-      delta
-      lazygit
-    ];
+    git
+    gitui
+    tig
+    delta
+    lazygit
+  ];
 
   programs.git = {
     enable = true;
@@ -23,7 +23,7 @@
       "**/build"
       "node_modules"
     ];
-    
+
     aliases = {
       lg = "log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
     };

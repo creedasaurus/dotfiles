@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
   # home.packages = with pkgs; [];
+  imports = [ ../../modules/home-manager ];
 
   programs.git = {
     userEmail = "haymd@amazon.com";

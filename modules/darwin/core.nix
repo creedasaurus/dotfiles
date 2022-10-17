@@ -1,29 +1,25 @@
 { inputs, config, pkgs, ... }:
 {
+  imports = [ ./nixpkgs.nix ];
+
   # environment setup
   environment = {
     loginShell = pkgs.zsh;
-    etc = { darwin.source = "${inputs.darwin}"; };
-    # Use a custom configuration.nix location.
-    # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
 
     # packages installed in system profile
-    # systemPackages = [ ];
+    systemPackages = with pkgs; [ bash zsh fish dash ksh ];
+    shells = with pkgs; [ bash zsh fish dash ksh ];
   };
 
-  # auto manage nixbld users with nix darwin
-  nix = {
-    configureBuildUsers = true;
-    nixPath = [ "darwin=/etc/${config.environment.etc.darwin.target}" ];
-    extraOptions = ''
-      extra-platforms = x86_64-darwin aarch64-darwin
-      experimental-features = nix-command flakes
-    '';
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+    enableBashCompletion = false;
   };
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    enableCompletion = false;
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
