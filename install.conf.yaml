@@ -1,19 +1,73 @@
-# example -- not actually using this. 
 
 - defaults:
     link:
+      create: true
       relink: true
 
-- clean: ['~']
-
-- link:
-    ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
-
-- create:
-    - ~/downloads
-    - ~/.vim/undo-history
+- clean:
+    ~/:
+      force: false
+    ~/.config:
+      recursive: true
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+  - [sh scripts/pre-install.sh, Pre-install script]
+
+- link:
+    # ZSH
+    ~/.zshenv: 
+      path: zsh/home_zshenv.zsh
+    ~/.config/zsh/:
+      glob: true
+      path: zsh/.*
+    # BAT
+    ~/.config/bat/config:
+      path: bat/config
+    # GIT
+    ~/.config/git/:
+      path: git/*
+      glob: true
+    # TMUX
+    ~/.config/tmux/tmux.conf:
+      path: tmux/tmux.conf
+    # Brazil
+    ~/.config/brazil/brazil.prefs:
+      path: brazil/brazil.prefs
+    # Brew
+    ~/.Brewfile:
+      path: brew/Brewfile
+    ~/.Brewfile.lock.json:
+      path: brew/Brewfile.lock.json
+    # Neovim/LunarVim
+    ~/.config/lvim/config.lua:
+      path: lvim/config.lua
+
+- asdf:
+  - plugin: python
+    global: 3.10.8
+    versions:
+      - 3.10.8
+      - 3.9.15
+      - 3.8.15
+  - plugin: nodejs
+    global: 16.18.0
+    versions: 
+      - 18.12.0
+      - 16.18.0
+      - 14.20.1
+  - plugin: ruby
+    global: 3.1.2
+    versions:
+      - 3.1.2
+      - 2.7.6
+  - plugin: java
+    global: corretto-11.0.17.8.1
+    versions:
+      - corretto-11.0.17.8.1
+      - corretto-17.0.5.8.1
+      - corretto-8.352.08.1
+  - plugin: direnv
+
+  - shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [sh scripts/post-install.sh, Post-install script]

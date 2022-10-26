@@ -1,0 +1,19 @@
+[packagecache]
+cacheRoot = /Volumes/brazil-pkg-cache/
+
+[cli "platform_overlay"]
+version_set = BrazilPlatformOverlay/macos
+
+[cli "bin"]
+java17_home = /Users/haymd/.asdf/installs/java/corretto-17.0.5.8.1
+java11_home = /Users/haymd/.asdf/installs/java/corretto-11.0.17.8.1
+java8_home = /Users/haymd/.asdf/installs/java/corretto-8.352.08.1
+
+ruby27 = /Users/haymd/.asdf/installs/ruby/2.7.6/bin/ruby
+
+node14x = /Users/haymd/.asdf/installs/nodejs/14.20.1/bin/node
+node16x = /Users/haymd/.asdf/installs/nodejs/16.18.0/bin/node
+
+python39 = /Users/haymd/.asdf/installs/python/3.9.15/bin/python
+python38 = /Users/haymd/.asdf/installs/python/3.8.15/bin/python
+
