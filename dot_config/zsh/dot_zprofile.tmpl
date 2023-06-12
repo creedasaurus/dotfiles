@@ -1,0 +1,11 @@
+# ~/.config/zsh/.zprofile
+
+{{ output "brew" "shellenv" | trim }}
+
+path=(
+  $HOME/.toolbox/bin
+  $HOME/.local/bin
+  $HOMEBREW_PREFIX/opt/asdf/libexec/bin
+  $HOMEBREW_PREFIX/bin
+  $path
+)

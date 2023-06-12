@@ -1,0 +1,35 @@
+[alias]
+	lg = "log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+[core]
+	pager = "delta"
+
+[delta]
+	line-numbers = true
+	side-by-side = true
+
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[http]
+	postBuffer = 524288000
+
+[init]
+	defaultBranch = "main"
+
+[interactive]
+	diffFilter = "delta --color-only"
+
+[pull]
+	rebase = true
+
+[user]
+	email = haymd@amazon.com
+	name = Creed Haymond
+
+[includeIf "gitdir:~/personal/"]
+	path = "~/.config/git/github_config"
+

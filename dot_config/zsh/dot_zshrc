@@ -1,0 +1,100 @@
+#!/usr/bin/env zsh
+
+repos=(
+  # projects with nested plugins
+  belak/zsh-utils
+
+  # regular plugins
+  Aloxaf/fzf-tab
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-completions
+  zdharma-continuum/fast-syntax-highlighting
+)
+plugin-clone $repos
+
+fpath=(
+  $ZDOTDIR/completion
+  $HOMEBREW_PREFIX/share/zsh/site-functions
+  $fpath
+)
+
+
+### Source Starship
+source <($HOMEBREW_PREFIX/bin/starship init zsh --print-full-init)
+
+# Enable the "new" completion system (compsys).
+#autoload -Uz compinit && compinit ---- see below
+
+# source other plugins
+plugins=(
+  zsh-completions
+  zsh-autosuggestions
+  zsh-utils/completion # THIS now does my "compinit" stuff
+  zsh-utils/history
+  zsh-utils/editor
+  zsh-utils/utility
+
+  fzf-tab
+  fast-syntax-highlighting
+  zsh-history-substring-search
+)
+plugin-source $plugins
+
+# Set zsh history to much bigger
+HISTSIZE=150000
+SAVEHIST=150000
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+setopt glob_dots
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+
+# eval "$(atuin init zsh)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# bun completions
+[ -s "/Users/haymd/.bun/_bun" ] && source "/Users/haymd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# AVLRC commit queue cli
+export PATH="$PATH:/Users/haymd/.local/bin/cq/bin"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+
+# highlight zsh completion selection
+zstyle ':completion:*' menu select
+
+# Define aliases.
+alias tree='tree -a -I .git'
+alias bb='brazil-build'
+alias bbb='brc --allPackages brazil-build'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+alias gs='git status'
+alias la='exa -laF'
+alias ls='exa'
+
+# Replace docker with https://github.com/abiosoft/colima
+alias docker='colima nerdctl'
