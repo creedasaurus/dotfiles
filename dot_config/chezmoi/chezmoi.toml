@@ -1,0 +1,6 @@
+pager = "bat"
+
+[diff]
+    pager = "delta"
+[edit]
+    command = "nvim"
