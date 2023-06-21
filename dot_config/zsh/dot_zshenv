@@ -1,5 +1,4 @@
-# source main stuff
-. $ZDOTDIR/main.zsh
+#!/usr/bin/env zsh
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -9,4 +8,3 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go"
 export GOPROXY="direct"
-
