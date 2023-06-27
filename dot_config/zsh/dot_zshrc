@@ -87,7 +87,7 @@ if [[ ( -n "$TMUX" || -n "$ZELLIJ" )  &&  -n "$DIRENV_DIR" ]]; then
   unset -m "DIRENV_*"
 fi
 
-. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+eval "$(rtx activate zsh)"
 
 # highlight zsh completion selection
 zstyle ':completion:*' menu select

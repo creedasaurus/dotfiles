@@ -10,7 +10,7 @@ config.font = wezterm.font('JetBrains Mono')
 config.font_size = 13.0
 
 -- Colors
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'One Dark (Gogh)'
 
 -- Window frame font style
 config.window_frame = {
@@ -18,14 +18,13 @@ config.window_frame = {
 }
 
 config.window_padding = {
-  left = '0.25cell',
-  right = '0.25cell',
-  top = '0.25cell',
-  bottom = '0.25cell',
+  left = '1cell',
+  right = '1cell',
+  top = '0.5cell',
+  bottom = '0.5cell',
 }
 
 config.hide_tab_bar_if_only_one_tab = true
 
 return config
-
 

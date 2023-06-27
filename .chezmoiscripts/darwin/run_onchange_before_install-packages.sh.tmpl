@@ -2,6 +2,13 @@
 
 set -eufo pipefail
 
+{{ $taps := list
+     "1password/tap"
+     "bufbuild/buf"
+     "creedasaurus/gprox"
+     "mistertea/et"
+     "sdkman/tap" -}}
+
 {{ $brews := list
      "asdf"
      "bat"
@@ -46,6 +53,7 @@ set -eufo pipefail
      "ranger"
      "ripgrep"
      "rsync"
+     "rtx"
      "rust"
      "steampipe"
      "tig"
@@ -64,6 +72,8 @@ set -eufo pipefail
      "zsh"
      "zsh-autosuggestions"
      "xz" -}}
+
+
 {{ $casks := list
      "1password"
      "android-platform-tools"
@@ -107,11 +117,17 @@ set -eufo pipefail
      "karabiner-elements" -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($taps | sortAlpha | uniq) -}}
+tap "{{ . }}"
+{{ end -}}
+
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
+
 {{ range ($casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
 {{ end -}}
+
 EOF
 
