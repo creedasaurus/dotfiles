@@ -10,7 +10,7 @@ config.font = wezterm.font('JetBrains Mono')
 config.font_size = 13.0
 
 -- Colors
-config.color_scheme = 'One Dark (Gogh)'
+config.color_scheme = 'Argonaut (Gogh)'
 
 -- Window frame font style
 config.window_frame = {

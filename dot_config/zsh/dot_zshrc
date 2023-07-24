@@ -99,8 +99,10 @@ alias bbb='brc --allPackages brazil-build'
 alias brc='brazil-recursive-cmd'
 alias bws='brazil ws'
 alias gs='git status'
-alias la='exa -laF'
-alias ls='exa'
+alias la='lsd -la'
+alias ls='lsd'
+alias lt='ls --tree'
+alias odin="ssh -N -L 2009:localhost:2009 haymd.aka.corp.amazon.com"
 
 # Replace docker with https://github.com/abiosoft/colima
 alias docker='colima nerdctl'
