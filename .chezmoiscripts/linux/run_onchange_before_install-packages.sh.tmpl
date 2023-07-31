@@ -56,7 +56,6 @@ set -eufo pipefail
      "rsync"
      "rtx"
      "rust"
-     "sheldon"
      "steampipe"
      "tig"
      "tmux"
@@ -76,49 +75,6 @@ set -eufo pipefail
      "xz" -}}
 
 
-{{ $casks := list
-     "1password"
-     "android-platform-tools"
-     "appcleaner"
-     "discord"
-     "element"
-     "figma"
-     "firefox"
-     "finch"
-     "font-3270-nerd-font"
-     "font-fira-code-nerd-font"
-     "font-fira-mono-nerd-font"
-     "font-hack-nerd-font"
-     "font-im-writing-nerd-font"
-     "font-jetbrains-mono-nerd-font"
-     "font-mononoki-nerd-font"
-     "font-ubuntu-mono-nerd-font"
-     "fork"
-     "google-chrome"
-     "insomnia"
-     "iterm2"
-     "jetbrains-toolbox"
-     "kap"
-     "keepingyouawake"
-     "kitty"
-     "neovide"
-     "obs"
-     "obsidian"
-     "raycast"
-     "rectangle"
-     "scroll-reverser"
-     "slack"
-     "spotify"
-     "stretchly"
-     "sublime-text"
-     "visual-studio-code"
-     "vlc"
-     "wezterm"
-     "xcodes"
-     "zed"
-     "hammerspoon"
-     "karabiner-elements" -}}
-
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($taps | sortAlpha | uniq) -}}
 tap "{{ . }}"
@@ -126,10 +82,6 @@ tap "{{ . }}"
 
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
-{{ end -}}
-
-{{ range ($casks | sortAlpha | uniq) -}}
-cask "{{ . }}"
 {{ end -}}
 
 EOF

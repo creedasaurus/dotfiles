@@ -2,46 +2,13 @@
 
 . $ZDOTDIR/main.zsh
 
-repos=(
-  # projects with nested plugins
-  belak/zsh-utils
-
-  # regular plugins
-  Aloxaf/fzf-tab
-  zsh-users/zsh-autosuggestions
-  zsh-users/zsh-history-substring-search
-  zsh-users/zsh-completions
-  zdharma-continuum/fast-syntax-highlighting
-)
-plugin-clone $repos
-
 fpath=(
   $ZDOTDIR/completion
   $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
 )
 
-
-### Source Starship
-source <($HOMEBREW_PREFIX/bin/starship init zsh --print-full-init)
-
-# Enable the "new" completion system (compsys).
-#autoload -Uz compinit && compinit ---- see below
-
-# source other plugins
-plugins=(
-  zsh-completions
-  zsh-autosuggestions
-  zsh-utils/completion # THIS now does my "compinit" stuff
-  zsh-utils/history
-  zsh-utils/editor
-  zsh-utils/utility
-
-  fzf-tab
-  fast-syntax-highlighting
-  zsh-history-substring-search
-)
-plugin-source $plugins
+eval "$(sheldon source)"
 
 # Set zsh history to much bigger
 HISTSIZE=150000
