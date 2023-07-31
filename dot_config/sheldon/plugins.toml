@@ -14,6 +14,9 @@ shell = "zsh"
 
 [plugins]
 
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
@@ -21,6 +24,11 @@ github = "zsh-users/zsh-completions"
 github = "zsh-users/zsh-autosuggestions"
 use = ["{{ name }}.zsh"]
 
+[plugins.zsh-utils]
+github = "belak/zsh-utils"
+use = ["{history,editor,utility,completion}/*.plugin.zsh"]
+
+# Make sure this is the last plugin to bind "^I". SEE: https://github.com/Aloxaf/fzf-tab#compatibility-with-other-plugins
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
 
@@ -29,10 +37,3 @@ github = "zsh-users/zsh-history-substring-search"
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
-
-[plugins.zsh-utils]
-github = "belak/zsh-utils"
-use = ["{history,editor,utility,completion}/*.plugin.zsh"]
-
-[plugins.starship]
-inline = 'eval "$(starship init zsh)"'
