@@ -9,12 +9,15 @@ set -eufo pipefail
      "mistertea/et"
      "sdkman/tap" -}}
 
+
 {{ $brews := list
-     "asdf"
+     "atuin"
      "bat"
      "bottom"
+     "caddy"
      "chezmoi"
      "colima"
+     "cowsay"
      "curl"
      "git-delta"
      "direnv"
@@ -30,6 +33,7 @@ set -eufo pipefail
      "gh"
      "git"
      "gitui"
+     "git-delta"
      "git-lfs"
      "gnu-units"
      "gnupg"
@@ -39,6 +43,7 @@ set -eufo pipefail
      "htop"
      "hyperfine"
      "jq"
+     "just"
      "lazygit"
      "lsd"
      "ncurses"
@@ -46,10 +51,14 @@ set -eufo pipefail
      "luarocks"
      "mint"
      "mitmproxy"
+     "mosh"
      "neofetch"
      "neovim"
      "nushell"
      "oha"
+     "openssl"
+     "pdfcpu"
+     "pipes-sh"
      "protobuf"
      "ranger"
      "ripgrep"
@@ -71,16 +80,27 @@ set -eufo pipefail
      "yt-dlp" 
      "zellij"
      "zip"
+     "zlib"
+     "zoxide"
      "zsh"
      "zsh-autosuggestions"
      "xz" -}}
 
 {{- $casks := list }}
+{{- $vscodes := list }}
+
 {{- if eq .chezmoi.os "darwin" }}
+{{-  $taps = concat $taps (list
+	  "homebrew/cask-fonts") -}}
 {{-  $casks = concat $casks (list 
           "1password"
+          "1password-cli"
+          "activitywatch"
           "android-platform-tools"
           "appcleaner"
+	  "balenaetcher"
+	  "brave-browser"
+	  "chromedriver"
           "discord"
           "element"
           "figma"
@@ -96,12 +116,15 @@ set -eufo pipefail
           "font-ubuntu-mono-nerd-font"
           "fork"
           "google-chrome"
+          "hammerspoon"
           "insomnia"
           "iterm2"
           "jetbrains-toolbox"
           "kap"
+	  "karabiner-elements"
           "keepingyouawake"
           "kitty"
+	  "microsoft-edge"
           "neovide"
           "obs"
           "obsidian"
@@ -117,8 +140,15 @@ set -eufo pipefail
           "wezterm"
           "xcodes"
           "zed"
-          "hammerspoon"
-          "karabiner-elements") -}}
+	  "zoom") -}}
+{{-  $vscodes = concat $vscodes (list
+	"amazonwebservices.aws-toolkit-vscode"
+	"castwide.solargraph"
+	"dbaeumer.vscode-eslint"
+	"esbenp.prettier-vscode"
+	"golang.go"
+	"redhat.vscode-yaml"
+	"yoavbls.pretty-ts-errors") -}}
 {{- else }}
 # No casks on linux
 {{- end }}
@@ -134,6 +164,10 @@ brew "{{ . }}"
 
 {{ range ($casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
+{{ end -}}
+
+{{ range ($vscodes | sortAlpha | uniq) -}}
+vscode "{{ . }}"
 {{ end -}}
 
 EOF

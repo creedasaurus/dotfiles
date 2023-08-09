@@ -12,28 +12,43 @@
 
 shell = "zsh"
 
+[templates]
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+
 [plugins]
 
-[plugins.starship]
-inline = 'eval "$(starship init zsh)"'
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-use = ["{{ name }}.zsh"]
-
 [plugins.zsh-utils]
 github = "belak/zsh-utils"
-use = ["{history,editor,utility,completion}/*.plugin.zsh"]
+use = ["{history,editor,utility}/*.plugin.zsh"]
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
+[plugins.completion]
+github = "belak/zsh-utils"
+use = ["{completion}/*.plugin.zsh"]
+apply = ["defer"]
 
 # Make sure this is the last plugin to bind "^I". SEE: https://github.com/Aloxaf/fzf-tab#compatibility-with-other-plugins
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
+apply = ["defer"]
 
-[plugins.zsh-history-substring-search]
-github = "zsh-users/zsh-history-substring-search"
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
