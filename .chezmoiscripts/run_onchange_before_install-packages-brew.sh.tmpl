@@ -150,7 +150,14 @@ set -eufo pipefail
 	"redhat.vscode-yaml"
 	"yoavbls.pretty-ts-errors") -}}
 {{- else }}
-# No casks on linux
+{{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
+# Amazon Linux 2 can't build node with rtx. Install from brew...
+{{-  $brews = concat $brews (list
+	"node@20"
+	"node@18"
+	"node@16"
+	"node@14") -}}
+{{- end }}
 {{- end }}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF

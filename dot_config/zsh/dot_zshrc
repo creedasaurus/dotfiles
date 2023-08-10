@@ -42,16 +42,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # bun completions
-[ -s "/Users/haymd/.bun/_bun" ] && source "/Users/haymd/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# AVLRC commit queue cli
-export PATH="$PATH:/Users/haymd/.local/bin/cq/bin"
-
 export PATH="$HOME/.cargo/bin:$PATH"
+
 
 # In order for tmux and zellij shells to pick up direnv, unset the vars here
 if [[ ( -n "$TMUX" || -n "$ZELLIJ" )  &&  -n "$DIRENV_DIR" ]]; then

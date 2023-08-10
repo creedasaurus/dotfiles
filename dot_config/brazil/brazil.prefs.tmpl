@@ -1,0 +1,32 @@
+{{- if eq .chezmoi.os "darwin" }}
+[packagecache]
+cacheRoot = /Volumes/brazil-pkg-cache/
+
+[cli "platform_overlay"]
+version_set = BrazilPlatformOverlay/macos
+{{- end }}
+
+{{- $rtxInstalls := print .chezmoi.homeDir "/.local/share/rtx/installs" }}
+
+[cli "bin"]
+java20_home = {{ $rtxInstalls }}/java/20
+java17_home = {{ $rtxInstalls }}/java/17
+java11_home = {{ $rtxInstalls }}/java/corretto-11.0.19.7.1
+java8_home = {{ $rtxInstalls }}/java/corretto-8.372.07.1
+
+ruby27 = {{ $rtxInstalls }}/ruby/2/bin/ruby
+{{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
+# Amazon Linux 2 can't build node with rtx. Use Brew installs instead.
+node20x = {{ output "brew" "--prefix" "node@20" }}/bin/node
+node18x = {{ output "brew" "--prefix" "node@18" }}/bin/node
+node16x = {{ output "brew" "--prefix" "node@16" }}/bin/node
+node14x = {{ output "brew" "--prefix" "node@14" }}/bin/node
+{{- else }}
+node20x = {{ $rtxInstalls }}/node/20/bin/node
+node18x = {{ $rtxInstalls }}/node/18/bin/node
+node16x = {{ $rtxInstalls }}/node/16/bin/node
+node14x = {{ $rtxInstalls }}/node/14/bin/node
+{{- end }}
+
+python39 = {{ $rtxInstalls }}/python/3.9/bin/python
+python38 = {{ $rtxInstalls }}/python/3.8/bin/python
