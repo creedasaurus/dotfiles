@@ -17,10 +17,10 @@ java8_home = {{ $rtxInstalls }}/java/corretto-8.372.07.1
 ruby27 = {{ $rtxInstalls }}/ruby/2/bin/ruby
 {{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
 # Amazon Linux 2 can't build node with rtx. Use Brew installs instead.
-node20x = {{ output "brew" "--prefix" "node@20" }}/bin/node
-node18x = {{ output "brew" "--prefix" "node@18" }}/bin/node
-node16x = {{ output "brew" "--prefix" "node@16" }}/bin/node
-node14x = {{ output "brew" "--prefix" "node@14" }}/bin/node
+node20x = {{ trim (output "brew" "--prefix" "node@20") }}/bin/node
+node18x = {{ trim (output "brew" "--prefix" "node@18") }}/bin/node
+node16x = {{ trim (output "brew" "--prefix" "node@16") }}/bin/node
+node14x = {{ trim (output "brew" "--prefix" "node@14") }}/bin/node
 {{- else }}
 node20x = {{ $rtxInstalls }}/node/20/bin/node
 node18x = {{ $rtxInstalls }}/node/18/bin/node
