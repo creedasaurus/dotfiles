@@ -14,7 +14,7 @@ jobs = 6
 
 {{- if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
 [alias.node]
-20 = 'path:{{- trim (output "brew" "--prefix" "node@20") -}}'
-18 = 'path:{{- trim (output "brew" "--prefix" "node@18") -}}'
-16 = 'path:{{- trim (output "brew" "--prefix" "node@16") -}}'
+20 = 'path:{{ output "brew" "--prefix" "node@20" | trim }}'
+18 = 'path:{{ output "brew" "--prefix" "node@18" | trim }}'
+16 = 'path:{{ output "brew" "--prefix" "node@16" | trim }}'
 {{- end }}
