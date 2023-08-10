@@ -1,0 +1,21 @@
+
+[tools]
+{{- if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
+node = [
+    'path:{{ output "brew" "--prefix" "node@18" }}', 
+    'path:{{ output "brew" "--prefix" "node@20" }}'
+]
+{{- else }}
+node = ['18', '20']
+{{- end }}
+
+python = ['3']
+ruby = ['3']
+go = ['1.20.6']
+java = ['17', 'corretto-17', 'corretto-11', 'corretto-8', '20']
+
+[settings]
+
+experimental = true 
+jobs = 6 
+
