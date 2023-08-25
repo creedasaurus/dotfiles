@@ -41,6 +41,9 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.python_3_host_prog = vim.env.HOME .. '/.local/share/rtx/installs/python/3'
+vim.g.node_host_prog = vim.env.HOME .. '/.local/share/rtx/installs/node/18.17.1/bin/neovim-node-host'
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -129,7 +132,12 @@ require('lazy').setup({
     },
   },
 
-
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   {
     -- Set lualine as statusline
@@ -137,6 +145,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
+        theme = 'tokyonight',
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
@@ -259,6 +268,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+require('tokyonight').setup({
+  style = 'night'
+})
+
+vim.cmd[[colorscheme tokyonight]]
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
