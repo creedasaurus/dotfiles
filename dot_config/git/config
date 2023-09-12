@@ -27,9 +27,8 @@
 	rebase = true
 
 [user]
-	email = haymd@amazon.com
+	email = creedasaurus@gmail.com
 	name = Creed Haymond
 
-[includeIf "gitdir:~/personal/"]
-	path = "~/.config/git/github_config"
-
+[includeIf "gitdir:/Volumes/workplace/"]
+	path = "~/.config/git/amazon_config"
