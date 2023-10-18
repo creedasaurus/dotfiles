@@ -2,7 +2,7 @@
 [tools]
 
 node = ['18', '20']
-python = ['3']
+python = ['3.11']
 ruby = ['3']
 go = ['1.21']
 java = ['17', 'corretto-17', 'corretto-11', 'corretto-8', '20']
@@ -12,9 +12,3 @@ java = ['17', 'corretto-17', 'corretto-11', 'corretto-8', '20']
 experimental = true 
 jobs = 6 
 
-{{- if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
-[alias.node]
-20 = 'path:{{ output "brew" "--prefix" "node@20" | trim }}'
-18 = 'path:{{ output "brew" "--prefix" "node@18" | trim }}'
-16 = 'path:{{ output "brew" "--prefix" "node@16" | trim }}'
-{{- end }}

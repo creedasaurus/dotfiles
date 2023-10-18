@@ -2,3 +2,6 @@
 
 ZDOTDIR=~/.config/zsh
 source -- "$ZDOTDIR"/.zshenv
+
+if [ -e /home/haymd/.nix-profile/etc/profile.d/nix.sh ]; then . /home/haymd/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+

@@ -165,23 +165,24 @@ set -eufo pipefail
     "node@14") -}}
 {{- end }}
 {{- end }}
+echo 'no brew to install stuff with'
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range ($taps | sortAlpha | uniq) -}}
-tap "{{ . }}"
-{{ end -}}
-
-{{ range ($brews | sortAlpha | uniq) -}}
-brew "{{ . }}"
-{{ end -}}
-
-{{ range ($casks | sortAlpha | uniq) -}}
-cask "{{ . }}"
-{{ end -}}
-
-{{ range ($vscodes | sortAlpha | uniq) -}}
-vscode "{{ . }}"
-{{ end -}}
-
-EOF
-
+# brew bundle --no-lock --file=/dev/stdin <<EOF
+# {{ range ($taps | sortAlpha | uniq) -}}
+# tap "{{ . }}"
+# {{ end -}}
+# 
+# {{ range ($brews | sortAlpha | uniq) -}}
+# brew "{{ . }}"
+# {{ end -}}
+# 
+# {{ range ($casks | sortAlpha | uniq) -}}
+# cask "{{ . }}"
+# {{ end -}}
+# 
+# {{ range ($vscodes | sortAlpha | uniq) -}}
+# vscode "{{ . }}"
+# {{ end -}}
+# 
+# EOF
+# 

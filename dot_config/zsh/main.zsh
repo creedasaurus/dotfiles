@@ -3,7 +3,7 @@
 ### direnv hook printed out
 _direnv_hook() {
   trap -- '' SIGINT;
-  eval "$("$HOMEBREW_PREFIX/bin/direnv" export zsh)";
+  eval "$(direnv export zsh)";
   trap - SIGINT;
 }
 typeset -ag precmd_functions;
