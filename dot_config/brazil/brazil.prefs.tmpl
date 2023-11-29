@@ -9,10 +9,11 @@ version_set = BrazilPlatformOverlay/macos
 {{- $rtxInstalls := print .chezmoi.homeDir "/.local/share/rtx/installs" }}
 
 [cli "bin"]
-java20_home = {{ $rtxInstalls }}/java/20
-java17_home = {{ $rtxInstalls }}/java/17
-java11_home = {{ $rtxInstalls }}/java/corretto-11.0.19.7.1
-java8_home = {{ $rtxInstalls }}/java/corretto-8.372.07.1
+java21_home = {{ output "rtx" "where" "java@21" }}
+java20_home = {{ output "rtx" "where" "java@20" }}
+java17_home = {{ output "rtx" "where" "java@17" }}
+java11_home = {{ output "rtx" "where" "java@corretto-11" }}
+java8_home = {{ output "rtx" "where" "java@corretto-8" }}
 
 ruby27 = {{ $rtxInstalls }}/ruby/2/bin/ruby
 {{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}

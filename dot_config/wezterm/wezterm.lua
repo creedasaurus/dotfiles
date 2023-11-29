@@ -17,6 +17,8 @@ config.window_frame = {
 	font = wezterm.font { family = 'JetBrains Mono SemiBold' }
 }
 
+config.scrollback_lines = 13000
+
 config.window_padding = {
   left = '1cell',
   right = '1cell',
