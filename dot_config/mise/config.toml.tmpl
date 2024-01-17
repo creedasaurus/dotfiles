@@ -1,16 +1,18 @@
 
 [tools]
 
-node = ['18', '20']
+node = ['18', '20', '16', '14']
 python = ['3']
 ruby = ['3']
 go = ['1.21']
-java = ['17', 'corretto-17', 'corretto-11', 'corretto-8', '21']
+java = ['corretto-17', 'corretto-11', 'corretto-8', 'corretto-21']
+elixir = ['1.15']
+erlang = ['26.2.1']
 
 [settings]
 
-experimental = true 
-jobs = 6 
+experimental = true
+jobs = 6
 
 {{- if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
 [alias.node]
@@ -18,3 +20,9 @@ jobs = 6
 18 = 'path:{{ output "brew" "--prefix" "node@18" | trim }}'
 16 = 'path:{{ output "brew" "--prefix" "node@16" | trim }}'
 {{- end }}
+
+[alias.java]
+'21' = 'corretto-21'
+'17' = 'corretto-17'
+'11' = 'corretto-11'
+'8' = 'corretto-8'

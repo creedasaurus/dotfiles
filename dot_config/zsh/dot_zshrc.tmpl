@@ -50,7 +50,11 @@ if [[ ( -n "$TMUX" || -n "$ZELLIJ" )  &&  -n "$DIRENV_DIR" ]]; then
   unset -m "DIRENV_*"
 fi
 
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
+
+function mcurl() {
+    /usr/bin/curl "$@" -L --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
+}
 
 # highlight zsh completion selection
 zstyle ':completion:*' menu select

@@ -7,6 +7,7 @@ set -eufo pipefail
     "bufbuild/buf"
     "creedasaurus/gprox"
     "mistertea/et"
+    "nats-io/nats-tools"
     "sdkman/tap"
     "oven-sh/bun" -}}
 
@@ -27,6 +28,7 @@ set -eufo pipefail
     "dua-cli"
     "duf"
     "exa"
+    "fastmod"
     "fd"
     "fswatch"
     "fzf"
@@ -44,6 +46,7 @@ set -eufo pipefail
     "graphviz"
     "htop"
     "hyperfine"
+    "jaq"
     "jq"
     "just"
     "kubernetes-cli"
@@ -53,8 +56,10 @@ set -eufo pipefail
     "less"
     "luarocks"
     "mint"
+    "mise"
     "mitmproxy"
     "mosh"
+    "nats-io/nats-tools/nats"
     "neofetch"
     "neovim"
     "nushell"
@@ -66,7 +71,6 @@ set -eufo pipefail
     "ranger"
     "ripgrep"
     "rsync"
-    "rtx"
     "rust"
     "sheldon"
     "steampipe"
@@ -77,6 +81,7 @@ set -eufo pipefail
     "tree"
     "tree-sitter"
     "unzip"
+    "up"
     "watch"
     "wget"
     "yq"
@@ -95,7 +100,7 @@ set -eufo pipefail
 {{- if eq .chezmoi.os "darwin" }}
 {{-  $taps = concat $taps (list
     "homebrew/cask-fonts") -}}
-{{-  $casks = concat $casks (list 
+{{-  $casks = concat $casks (list
     "1password"
     "1password-cli"
     "activitywatch"
@@ -129,7 +134,6 @@ set -eufo pipefail
     "keepingyouawake"
     "kitty"
     "microsoft-edge"
-    "neovide"
     "obs"
     "obsidian"
     "raycast"
@@ -163,7 +167,7 @@ set -eufo pipefail
 
 {{- else }}
 {{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
-# Amazon Linux 2 can't build node with rtx. Install from brew...
+# Amazon Linux 2 can't build node with mise. Install from brew...
 {{-  $brews = concat $brews (list
     "node@20"
     "node@18"
@@ -190,4 +194,3 @@ vscode "{{ . }}"
 {{ end -}}
 
 EOF
-
