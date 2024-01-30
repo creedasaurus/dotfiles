@@ -31,4 +31,8 @@
 	name = Creed Haymond
 
 [includeIf "gitdir:/Volumes/workplace/"]
-	path = "~/.config/git/amazon_config"
+  path = "~/.config/git/amazon_config"
+
+[status]
+  submoduleSummary = true
+

@@ -175,6 +175,8 @@ mounts:
     writable: true
   - location: ~/workplace
     writable: true
+  - location: ~/personal
+    writable: true
 
 # Environment variables for the virtual machine.
 #

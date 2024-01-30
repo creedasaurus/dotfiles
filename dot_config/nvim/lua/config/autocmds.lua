@@ -6,4 +6,7 @@ vim.filetype.add({
   filename = {
     ["Config"] = "brazil-config",
   },
+  extension = { templ = "templ" },
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
