@@ -27,5 +27,7 @@ node16x = {{ output "mise" "where" "node@16" | trim }}/bin/node
 node14x = {{ output "mise" "where" "node@14" | trim }}/bin/node
 {{- end }}
 
+python311 = {{ $miseInstalls }}/python/3.11/bin/python
+python310 = {{ $miseInstalls }}/python/3.10/bin/python
 python39 = {{ $miseInstalls }}/python/3.9/bin/python
 python38 = {{ $miseInstalls }}/python/3.8/bin/python
