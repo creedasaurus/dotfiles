@@ -1,0 +1,16 @@
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+]
+
+[font]
+normal = { family = "MonaspiceAr Nerd Font" }
+size = 14.0
+
+[window]
+dynamic_padding = true
+decorations = "Buttonless"
+padding = { x = 5, y = 5 }
+opacity = 1.0
+blur = true
+
+

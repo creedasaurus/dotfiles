@@ -2,3 +2,7 @@
 type = "git-repo"
 url = "https://github.com/gpakosz/.tmux.git"
 
+[".config/alacritty/themes"]
+type = "git-repo"
+url = "https://github.com/alacritty/alacritty-theme"
+
