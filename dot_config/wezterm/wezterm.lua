@@ -19,12 +19,16 @@ config.window_frame = {
 
 config.scrollback_lines = 13000
 
+config.window_decorations = "RESIZE"
+
 config.window_padding = {
 	left = "1cell",
 	right = "1cell",
-	top = "0.5cell",
-	bottom = "0.5cell",
+	top = "0.2cell",
+	bottom = "0.2cell",
 }
+config.window_background_opacity = 0.92
+config.macos_window_background_blur = 20
 
 config.hide_tab_bar_if_only_one_tab = true
 
