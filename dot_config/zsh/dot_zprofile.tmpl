@@ -2,7 +2,7 @@
 
 # ~/.config/zsh/.zprofile
 
-# no brew to run
+{{ output "brew" "shellenv" | trim }}
 
 path=(
   $HOME/.toolbox/bin
@@ -12,3 +12,7 @@ path=(
   $HOMEBREW_PREFIX/bin
   $path
 )
+
+if [ -e $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+  . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi

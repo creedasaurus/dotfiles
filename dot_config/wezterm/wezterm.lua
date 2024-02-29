@@ -18,6 +18,8 @@ config.window_frame = {
 }
 
 config.scrollback_lines = 13000
+config.initial_rows = 64
+config.initial_cols = 160
 
 config.window_decorations = "RESIZE"
 
@@ -31,5 +33,14 @@ config.window_background_opacity = 0.92
 config.macos_window_background_blur = 20
 
 config.hide_tab_bar_if_only_one_tab = true
+
+config.mouse_bindings = {
+	-- Cmd-click will open the link under the mouse cursor
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "CMD",
+		action = wezterm.action.OpenLinkAtMouseCursor,
+	},
+}
 
 return config
