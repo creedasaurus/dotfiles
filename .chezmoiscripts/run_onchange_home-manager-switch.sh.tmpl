@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+# home-manager file hash: {{ joinPath .chezmoi.sourceDir "dot_config/home-manager/home.nix" | include | sha256sum }}
+
+if (( $+commands[home-manager] )); then
+  home-manager switch
+else
+  echo "home-manager command not available"
+fi
