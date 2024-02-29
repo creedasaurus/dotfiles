@@ -2,7 +2,7 @@
 
 let homeDir = builtins.getEnv "HOME";
     userName = builtins.getEnv "USER";
-    unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
+    latest = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 
 in {
   # Home Manager needs a bit of information about you and the paths it should
@@ -22,8 +22,79 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
  home.packages = with pkgs; [
-    unstable.atuin
+    latest.atuin
     bat
+    bottom
+    caddy
+    latest.chezmoi
+    latest.curl
+    delta
+    latest.d2
+    latest.direnv
+    dos2unix
+    latest.sqlite
+    latest.dua
+    duf
+    latest.fastmod
+    latest.fd
+    fswatch
+    latest.fzf
+    latest.ffmpeg
+    fpp
+    gawk
+    latest.gh
+    latest.git
+    latest.gitui
+    latest.git-lfs
+    gnupg
+    latest.golangci-lint
+    latest.go-task
+    latest.graphviz
+    latest.htop
+    latest.hyperfine
+    latest.jaq
+    latest.jq
+    latest.just
+    latest.kubectl
+    latest.lazygit
+    latest.lsd
+    ncurses
+    less
+    latest.mise
+    latest.mosh
+    latest.neofetch
+    latest.neovim
+    latest.nushell
+    latest.oha
+    latest.pdfcpu
+    pipes
+    protobuf
+    ranger
+    latest.ripgrep
+    rsync
+    latest.rustscan
+    latest.scc
+    latest.steampipe
+    latest.tig
+    latest.tmux
+    latest.tokei
+    tree
+    latest.tree-sitter
+    latest.trippy
+    latest.units
+    unzip
+    latest.up
+    latest.urlscan
+    unixtools.watch
+    wget
+    latest.yq-go
+    latest.yt-dlp
+    latest.zellij
+    zip
+    zlib
+    latest.zoxide
+    latest.zsh
+    latest.xz
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

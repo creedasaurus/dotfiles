@@ -22,6 +22,12 @@ github = "romkatv/zsh-defer"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+use = ["src"]
+apply = ["fpath"]
+
+[plugins.nix-zsh-completions]
+github = "nix-community/nix-zsh-completions"
+apply = ["fpath"]
 
 [plugins.zsh-utils]
 github = "belak/zsh-utils"
