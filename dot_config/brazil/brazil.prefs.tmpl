@@ -6,19 +6,28 @@ cacheRoot = /Volumes/brazil-pkg-cache/
 version_set = BrazilPlatformOverlay/macos
 {{- end }}
 
-{{- $rtxInstalls := print .chezmoi.homeDir "/.local/share/rtx/installs" }}
+{{- $miseInstalls := print .chezmoi.homeDir "/.local/share/mise/installs" }}
 
 [cli "bin"]
-java20_home = {{ $rtxInstalls }}/java/20
-java17_home = {{ $rtxInstalls }}/java/17
-java11_home = {{ $rtxInstalls }}/java/corretto-11.0.19.7.1
-java8_home = {{ $rtxInstalls }}/java/corretto-8.372.07.1
+java21_home = {{ output "mise" "where" "java@21" }}
+java17_home = {{ output "mise" "where" "java@17" }}
+java11_home = {{ output "mise" "where" "java@11" }}
+java8_home = {{ output "mise" "where" "java@8" }}
 
-ruby27 = {{ $rtxInstalls }}/ruby/2/bin/ruby
+ruby27 = {{ $miseInstalls }}/ruby/2/bin/ruby
+{{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
+# Amazon Linux 2 can't build node with mise. Use Brew installs instead.
+node20x = {{ output "brew" "--prefix" "node@20" | trim }}/bin/node
+node18x = {{ output "brew" "--prefix" "node@18" | trim }}/bin/node
+node16x = {{ output "brew" "--prefix" "node@16" | trim }}/bin/node
+{{- else }}
+node20x = {{ output "mise" "where" "node@20" | trim }}/bin/node
+node18x = {{ output "mise" "where" "node@18" | trim }}/bin/node
+node16x = {{ output "mise" "where" "node@16" | trim }}/bin/node
+node14x = {{ output "mise" "where" "node@14" | trim }}/bin/node
+{{- end }}
 
-node20x = {{ $rtxInstalls }}/node/20/bin/node
-node18x = {{ $rtxInstalls }}/node/18/bin/node
-node16x = {{ $rtxInstalls }}/node/16/bin/node
-
-python39 = {{ $rtxInstalls }}/python/3.9/bin/python
-python38 = {{ $rtxInstalls }}/python/3.8/bin/python
+python311 = {{ $miseInstalls }}/python/3.11/bin/python
+python310 = {{ $miseInstalls }}/python/3.10/bin/python
+python39 = {{ $miseInstalls }}/python/3.9/bin/python
+python38 = {{ $miseInstalls }}/python/3.8/bin/python

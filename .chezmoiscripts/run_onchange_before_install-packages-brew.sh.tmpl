@@ -7,6 +7,7 @@ set -eufo pipefail
     "bufbuild/buf"
     "creedasaurus/gprox"
     "mistertea/et"
+    "nats-io/nats-tools"
     "sdkman/tap"
     "oven-sh/bun" -}}
 
@@ -20,15 +21,19 @@ set -eufo pipefail
     "cowsay"
     "curl"
     "git-delta"
+    "d2"
     "direnv"
+    "dos2unix"
     "sqlite"
     "dua-cli"
     "duf"
     "exa"
+    "fastmod"
     "fd"
     "fswatch"
     "fzf"
     "ffmpeg"
+    "fpp"
     "gawk"
     "gh"
     "git"
@@ -39,19 +44,24 @@ set -eufo pipefail
     "gnupg"
     "go"
     "golangci-lint"
+    "go-task"
     "graphviz"
     "htop"
     "hyperfine"
+    "jaq"
     "jq"
     "just"
+    "kubernetes-cli"
     "lazygit"
     "lsd"
     "ncurses"
     "less"
     "luarocks"
     "mint"
+    "mise"
     "mitmproxy"
     "mosh"
+    "nats-io/nats-tools/nats"
     "neofetch"
     "neovim"
     "nushell"
@@ -63,8 +73,8 @@ set -eufo pipefail
     "ranger"
     "ripgrep"
     "rsync"
-    "rtx"
     "rust"
+    "rustscan"
     "sheldon"
     "steampipe"
     "tig"
@@ -73,7 +83,10 @@ set -eufo pipefail
     "trash"
     "tree"
     "tree-sitter"
+    "trippy"
     "unzip"
+    "up"
+    "urlscan"
     "watch"
     "wget"
     "yq"
@@ -91,16 +104,20 @@ set -eufo pipefail
 
 {{- if eq .chezmoi.os "darwin" }}
 {{-  $taps = concat $taps (list
-    "homebrew/cask-fonts") -}}
-{{-  $casks = concat $casks (list 
+    "homebrew/cask-fonts"
+    "koekeishiya/formulae") -}}
+{{-  $casks = concat $casks (list
     "1password"
     "1password-cli"
     "activitywatch"
+    "alacritty"
     "android-platform-tools"
     "appcleaner"
     "balenaetcher"
     "brave-browser"
+    "bruno"
     "chromedriver"
+    "darktable"
     "discord"
     "element"
     "figma"
@@ -117,24 +134,23 @@ set -eufo pipefail
     "fork"
     "google-chrome"
     "hammerspoon"
-    "insomnia"
     "iterm2"
     "jetbrains-toolbox"
     "kap"
-	"karabiner-elements"
+    "karabiner-elements"
     "keepingyouawake"
-    "kitty"
     "microsoft-edge"
-    "neovide"
     "obs"
     "obsidian"
     "raycast"
+    "raspberry-pi-imager"
     "rectangle"
     "scroll-reverser"
     "slack"
     "spotify"
     "stretchly"
     "sublime-text"
+    "tuist"
     "visual-studio-code"
     "vlc"
     "wezterm"
@@ -153,11 +169,13 @@ set -eufo pipefail
 
 {{- $brews = concat $brews (list
     "colima"
+    "skhd"
+    "yabai"
 )}}
 
 {{- else }}
 {{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
-# Amazon Linux 2 can't build node with rtx. Install from brew...
+# Amazon Linux 2 can't build node with mise. Install from brew...
 {{-  $brews = concat $brews (list
     "node@20"
     "node@18"
@@ -165,24 +183,22 @@ set -eufo pipefail
     "node@14") -}}
 {{- end }}
 {{- end }}
-echo 'no brew to install stuff with'
 
-# brew bundle --no-lock --file=/dev/stdin <<EOF
-# {{ range ($taps | sortAlpha | uniq) -}}
-# tap "{{ . }}"
-# {{ end -}}
-# 
-# {{ range ($brews | sortAlpha | uniq) -}}
-# brew "{{ . }}"
-# {{ end -}}
-# 
-# {{ range ($casks | sortAlpha | uniq) -}}
-# cask "{{ . }}"
-# {{ end -}}
-# 
-# {{ range ($vscodes | sortAlpha | uniq) -}}
-# vscode "{{ . }}"
-# {{ end -}}
-# 
-# EOF
-# 
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($taps | sortAlpha | uniq) -}}
+tap "{{ . }}"
+{{ end -}}
+
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+
+{{ range ($vscodes | sortAlpha | uniq) -}}
+vscode "{{ . }}"
+{{ end -}}
+
+EOF
