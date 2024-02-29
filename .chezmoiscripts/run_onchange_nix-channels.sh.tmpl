@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+# nix channels file hash: {{ joinPath .chezmoi.sourceDir "dot_nix-channels" | include | sha256sum }}
+
+if (( $+commands[nix-channel] )); then
+  nix-channel --update
+else
+  echo "nix-channel does not seem to be available. Please make sure you've installed nix first!"
+fi
