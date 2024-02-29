@@ -2,6 +2,7 @@
 
 let homeDir = builtins.getEnv "HOME";
     userName = builtins.getEnv "USER";
+    unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 
 in {
   # Home Manager needs a bit of information about you and the paths it should
@@ -16,57 +17,13 @@ in {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    atuin
-    bat
-    bottom
-    caddy
-    chezmoi
-    cowsay
-    curl
-    delta
-    direnv
-    dua
-    eternal-terminal
-    fd
-    fswatch
-    fzf
-    ffmpeg
-    gawk
-    git
-    htop
-    jq
-    just
-    lazygit
-    lsd
-    less
-    mosh
-    neofetch
-    neovim
-    pdfcpu
-    ripgrep
-    rsync 
-    rtx
-    sheldon
-    starship
-    steampipe
-    tig
-    tmux
-    tokei
-    tree
-    unzip
-    watch
-    wget
-    yq
-    zellij
-    zip
-    zoxide
-    zsh
-    xz
+ home.packages = with pkgs; [
+    unstable.atuin
+    hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -84,7 +41,7 @@ in {
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-#  home.file = {
+  # home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -95,10 +52,12 @@ in {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-#  };
+  # };
 
-  # You can also manage environment variables but you will have to manually
-  # source
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. If you don't want to manage your shell through Home
+  # Manager then you have to manually source 'hm-session-vars.sh' located at
+  # either
   #
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
   #
@@ -106,7 +65,9 @@ in {
   #
   #  /etc/profiles/per-user/haymd/etc/profile.d/hm-session-vars.sh
   #
-  # if you don't want to manage your shell through Home Manager.
+  # home.sessionVariables = {
+    # EDITOR = "emacs";
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
