@@ -3,10 +3,16 @@
 
 . $ZDOTDIR/main.zsh
 
+{{- if eq .chezmoi.os "darwin" }}
+fpath=(
+  $HOMEBREW_PREFIX/share/zsh/site-functions
+  $fpath
+)
+{{- end }}
+
 fpath=(
   $HOME/.nix-profile/share/zsh/site-functions
   $ZDOTDIR/completion
-  $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
 )
 

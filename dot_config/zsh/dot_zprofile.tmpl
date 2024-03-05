@@ -1,13 +1,18 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh :
 
+{{- if eq .chezmoi.os "darwin" }}
 {{ output "brew" "shellenv" | trim }}
+path=(
+  $HOMEBREW_PREFIX/opt/asdf/libexec/bin
+  $HOMEBREW_PREFIX/bin
+  $path
+)
+{{- end }}
 
 path=(
   $HOME/.toolbox/bin
   $HOME/.local/bin
   $HOME/.rodar/bin
-  $HOMEBREW_PREFIX/opt/asdf/libexec/bin
-  $HOMEBREW_PREFIX/bin
   $path
 )

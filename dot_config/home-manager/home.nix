@@ -22,23 +22,30 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
  home.packages = with pkgs; [
-    latest.atuin
-    bat
-    bottom
-    caddy
-    latest.chezmoi
+    latest.atuin # shell history sync
+    bat # better CAT tool
+    bottom # another htop tool
+    brotli # compression
+    latest.broot # another file/folder tui
+    latest.buf # generate/manage/lint protobufs
+    caddy # local https server
+    # - not on aarch64-apple-darwin 
+    # latest.cava
+    latest.chezmoi # managing dotfiles
+    cmakeMinimal # cmake and tools
     latest.curl
-    delta
-    latest.d2
+    delta # diff with nice colors
+    latest.d2 # diagram generating tool
     latest.direnv
-    dos2unix
-    latest.sqlite
-    latest.dua
+    dos2unix # convert files that were DOS to unix
+    latest.dua # directory size tool
     duf
+    latest.dust
+    eternal-terminal # terminal session reconnect
     latest.fastmod
-    latest.fd
+    latest.fd # fast folder search
     fswatch
-    latest.fzf
+    latest.fzf # fuzzy finder
     latest.ffmpeg
     fpp
     gawk
@@ -51,48 +58,59 @@ in {
     latest.go-task
     latest.graphviz
     latest.htop
-    latest.hyperfine
-    latest.jaq
-    latest.jq
+    latest.hyperfine # benchmark commands
+    latest.jaq # another JSON tool
+    latest.jc # convert common filetyles to structured JSON
+    latest.jq # ALL the json/yaml things
     latest.just
+    latest.k6 # load tests
+    latest.k9s # k8s tui tool
+    latest.kondo # clean dev dirs
     latest.kubectl
     latest.lazygit
-    latest.lsd
+    latest.lsd # better ls tool
     ncurses
     less
-    latest.mise
-    latest.mosh
+    latest.mise # install languages
+    latest.mosh # stay connected SSH tool
+    latest.natscli # tools for NATS server
     latest.neofetch
     latest.neovim
-    latest.nushell
-    latest.oha
-    latest.pdfcpu
-    pipes
+    latest.nushell # best query shell thing
+    latest.oha # load tests
+    latest.pdfcpu # work with PDFS
+    pipes # draw pipes on your screen
     protobuf
-    ranger
-    latest.ripgrep
+    ranger # file/folder tui
+    latest.ripgrep # search text fast
     rsync
-    latest.rustscan
-    latest.scc
-    latest.steampipe
-    latest.tig
+    latest.rustscan # network port scanning tool
+    latest.scc # lines of code and cost associated
+    # - not on aarch64-apple-darwin 
+    # latest.sheldon
+    latest.sqlite
+    latest.src-cli # sourcegraph cli
+    latest.starship # zsh prompt thing
+    latest.steampipe # query cloud resources
+    latest.tig # git backwards tui
     latest.tmux
-    latest.tokei
+    latest.tokei # lines of code tool
     tree
     latest.tree-sitter
-    latest.trippy
+    latest.trippy # round trip network tool
     latest.units
     unzip
-    latest.up
+    latest.up # pipe commands with live preview
     latest.urlscan
     unixtools.watch
     wget
+    latest.yazi
     latest.yq-go
     latest.yt-dlp
-    latest.zellij
+    latest.zellij # like another tmux
     zip
     zlib
-    latest.zoxide
+    latest.zoxide # best CD command helper
     latest.zsh
     latest.xz
 

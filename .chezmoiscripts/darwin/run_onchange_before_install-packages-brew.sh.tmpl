@@ -4,21 +4,12 @@ set -eufo pipefail
 
 {{ $taps := list
     "1password/tap"
-    "bufbuild/buf"
     "creedasaurus/gprox"
-    "mistertea/et"
-    "nats-io/nats-tools"
-    "sdkman/tap"
-    "oven-sh/bun" -}}
+    "sdkman/tap" -}}
 
 {{ $brews := list
-    "bun"
-    "less"
     "mint"
-    "nats-io/nats-tools/nats"
     "openssl"
-    "rust"
-    "sheldon"
     "trash" -}}
 
 {{- $casks := list }}
@@ -92,7 +83,6 @@ set -eufo pipefail
 {{- $brews = concat $brews (list
     "colima"
     "skhd"
-    "yabai"
 )}}
 
 {{- else }}
