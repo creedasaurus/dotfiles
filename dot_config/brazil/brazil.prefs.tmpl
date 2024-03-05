@@ -17,17 +17,11 @@ java11_home = {{ output "mise" "where" "java@11" }}
 java8_home = {{ output "mise" "where" "java@8" }}
 
 ruby27 = {{ $miseInstalls }}/ruby/2/bin/ruby
-{{ if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
-# Amazon Linux 2 can't build node with mise. Use Brew installs instead.
-node20x = {{ output "brew" "--prefix" "node@20" | trim }}/bin/node
-node18x = {{ output "brew" "--prefix" "node@18" | trim }}/bin/node
-node16x = {{ output "brew" "--prefix" "node@16" | trim }}/bin/node
-{{- else }}
+
 node20x = {{ output "mise" "where" "node@20" | trim }}/bin/node
 node18x = {{ output "mise" "where" "node@18" | trim }}/bin/node
 node16x = {{ output "mise" "where" "node@16" | trim }}/bin/node
 node14x = {{ output "mise" "where" "node@14" | trim }}/bin/node
-{{- end }}
 
 python311 = {{ $miseInstalls }}/python/3.11/bin/python
 python310 = {{ $miseInstalls }}/python/3.10/bin/python

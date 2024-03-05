@@ -15,10 +15,9 @@ experimental = true
 jobs = 6
 
 {{- if eq (get .chezmoi.osRelease "prettyName") "Amazon Linux 2" }}
-[alias.node]
-20 = 'path:{{ output "brew" "--prefix" "node@20" | trim }}'
-18 = 'path:{{ output "brew" "--prefix" "node@18" | trim }}'
-16 = 'path:{{ output "brew" "--prefix" "node@16" | trim }}'
+# Amazon Linux doesn't have the right libs to build using the default plugin
+[plugins]
+node = 'ssh://git.amazon.com/pkg/RtxNode'
 {{- end }}
 
 [alias.java]
