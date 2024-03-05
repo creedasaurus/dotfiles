@@ -85,6 +85,7 @@ in {
     latest.ripgrep # search text fast
     rsync
     latest.rustscan # network port scanning tool
+    latest.rustup
     latest.scc # lines of code and cost associated
     # - not on aarch64-apple-darwin 
     # latest.sheldon

@@ -49,8 +49,6 @@ eval "$(atuin init zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
 
 # In order for tmux and zellij shells to pick up direnv, unset the vars here
 if [[ ( -n "$TMUX" || -n "$ZELLIJ" )  &&  -n "$DIRENV_DIR" ]]; then
