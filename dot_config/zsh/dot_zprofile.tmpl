@@ -4,7 +4,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 {{ output "brew" "shellenv" | trim }}
 path=(
-  $HOMEBREW_PREFIX/opt/asdf/libexec/bin
   $HOMEBREW_PREFIX/bin
   $path
 )

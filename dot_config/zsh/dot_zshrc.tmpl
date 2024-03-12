@@ -1,81 +1,31 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh :
 
-. $ZDOTDIR/main.zsh
+# PATHS
+source "$ZDOTDIR/setup_paths.zsh"
 
-{{- if eq .chezmoi.os "darwin" }}
-fpath=(
-  $HOMEBREW_PREFIX/share/zsh/site-functions
-  $fpath
-)
-{{- end }}
+# ZIM
+source "$ZDOTDIR/setup_zim.zsh"
 
-fpath=(
-  $HOME/.nix-profile/share/zsh/site-functions
-  $ZDOTDIR/completion
-  $fpath
-)
-
-eval "$(sheldon source)"
 eval "$(zoxide init zsh)"
-
-# Set zsh history to much bigger
-HISTSIZE=150000
-SAVEHIST=150000
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:z:*' disabled-on any
-zstyle ':fzf-tab:complete:zi:*' disabled-on any
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
-
-setopt glob_dots
-
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
-
 eval "$(atuin init zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+## Langs
+export GOPROXY="direct"
 
-
-# In order for tmux and zellij shells to pick up direnv, unset the vars here
-if [[ ( -n "$TMUX" || -n "$ZELLIJ" )  &&  -n "$DIRENV_DIR" ]]; then
-  # unset any environment variables starting with DIRENV_
-  unset -m "DIRENV_*"
-fi
-
-eval "$(mise activate zsh)"
-
+## utilities
 function mcurl() {
     /usr/bin/curl "$@" -L --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
 }
 
-# highlight zsh completion selection
-zstyle ':completion:*' menu select
-
-# Define aliases.
-alias tree='tree -a -I .git'
+## work aliases
 alias bb='brazil-build'
 alias bbb='brc --allPackages brazil-build'
 alias brc='brazil-recursive-cmd'
 alias bws='brazil ws'
 alias gs='git status'
 alias la='lsd -la'
-alias ls='lsd'
-alias lt='ls --tree'
-alias k='kubectl'
+
 {{- if eq .chezmoi.os "darwin" }}
 alias odin="ssh -N -L 2009:localhost:2009 haymd.aka.corp.amazon.com"
 # Replace docker with https://github.com/abiosoft/colima

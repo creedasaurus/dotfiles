@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+# script to help check for updates and go to the latest
+
+nix-channel --update
+
+echo "building latest home-manager generation..."
+latest_generation_dir=$(home-manager build)
+
+current_generation_dir=$(home-manager generations | awk '{print $7}' | head -n 1)
+
+echo "diffing next generation with current generation"
+
+nix store diff-closures $current_generation_dir $latest_generation_dir
+

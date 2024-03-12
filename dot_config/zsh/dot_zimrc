@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# vim: set filetype=zsh :
+
+zmodule environment
+zmodule input
+zmodule run-help
+zmodule joke/zim-starship
+zmodule fzf
+zmodule git
+zmodule k
+zmodule utility
+zmodule joke/zim-mise
+zmodule zsh-users/zsh-completions --fpath src
+zmodule nix-community/nix-zsh-completions --fpath .
+zmodule completion
+zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule Aloxaf/fzf-tab

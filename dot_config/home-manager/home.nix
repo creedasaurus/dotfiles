@@ -24,13 +24,12 @@ in {
  home.packages = with pkgs; [
     latest.atuin # shell history sync
     bat # better CAT tool
+    latest.bfs
     bottom # another htop tool
     brotli # compression
     latest.broot # another file/folder tui
     latest.buf # generate/manage/lint protobufs
     caddy # local https server
-    # - not on aarch64-apple-darwin 
-    # latest.cava
     latest.chezmoi # managing dotfiles
     cmakeMinimal # cmake and tools
     latest.curl
@@ -40,7 +39,7 @@ in {
     dos2unix # convert files that were DOS to unix
     latest.dua # directory size tool
     duf
-    latest.dust
+    latest.du-dust
     eternal-terminal # terminal session reconnect
     latest.fastmod
     latest.fd # fast folder search
@@ -87,8 +86,7 @@ in {
     latest.rustscan # network port scanning tool
     latest.rustup
     latest.scc # lines of code and cost associated
-    # - not on aarch64-apple-darwin 
-    # latest.sheldon
+    latest.shfmt
     latest.sqlite
     latest.src-cli # sourcegraph cli
     latest.starship # zsh prompt thing
@@ -99,6 +97,7 @@ in {
     tree
     latest.tree-sitter
     latest.trippy # round trip network tool
+    latest.ugrep # yet another grep
     latest.units
     unzip
     latest.up # pipe commands with live preview
@@ -158,6 +157,12 @@ in {
   # home.sessionVariables = {
     # EDITOR = "emacs";
   # };
+  home.activation.reportChanges = config.lib.dag.entryAnywhere ''
+    if [[ -v oldGenPath ]]; then
+      echo "diffing closures"
+      $DRY_RUN_CMD nix store diff-closures $oldGenPath $newGenPath
+    fi
+  '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
