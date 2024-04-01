@@ -32,10 +32,12 @@ in {
     caddy # local https server
     latest.chezmoi # managing dotfiles
     cmakeMinimal # cmake and tools
+    croc # another scp
     latest.curl
     delta # diff with nice colors
-    latest.d2 # diagram generating tool
+    d2 # diagram generating tool
     latest.direnv
+    doggo # DNS client for humans
     dos2unix # convert files that were DOS to unix
     latest.dua # directory size tool
     duf
@@ -61,6 +63,7 @@ in {
     latest.jaq # another JSON tool
     latest.jc # convert common filetyles to structured JSON
     latest.jq # ALL the json/yaml things
+    # joshuto # another ranger like terminal file navigator
     latest.just
     latest.k6 # load tests
     latest.k9s # k8s tui tool
@@ -90,7 +93,7 @@ in {
     latest.sqlite
     latest.src-cli # sourcegraph cli
     latest.starship # zsh prompt thing
-    latest.steampipe # query cloud resources
+    steampipe # query cloud resources
     latest.tig # git backwards tui
     latest.tmux
     latest.tokei # lines of code tool
@@ -108,6 +111,7 @@ in {
     latest.yq-go
     latest.yt-dlp
     latest.zellij # like another tmux
+    zenith # another htop but with graphs
     zip
     zlib
     latest.zoxide # best CD command helper
