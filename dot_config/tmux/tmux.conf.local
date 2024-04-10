@@ -5,6 +5,16 @@
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
+# -- bindings ------------------------------------------------------------------
+
+# preserve tmux stock bindings,
+# while adding bindings that don't conflict with these stock bindings
+# /!\ this disables some of Oh my tmux! bindings described in README.md
+#   - true
+#   - false (default)
+tmux_conf_preserve_stock_bindings=false
+
+
 # -- session creation ----------------------------------------------------------
 
 # prompt for session name when creating a new session, possible values are:
@@ -12,6 +22,12 @@
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
 tmux_conf_new_session_prompt=false
+
+# new session retains current path, possible values are:
+#   - true
+#   - false (default)
+#   - disabled (do not modify new-session bindings)
+tmux_conf_new_session_retain_current_path=false
 
 
 # -- windows & pane creation ---------------------------------------------------
@@ -353,7 +369,7 @@ tmux_conf_copy_to_os_clipboard=false
 # this is the place to override or undo settings
 
 # increase history size
-set -g history-limit 20000
+set -g history-limit 24000
 
 # start with mouse mode enabled
 set -g mouse on
@@ -375,9 +391,6 @@ set -g mouse on
 
 # move status line to top
 #set -g status-position top
-
-# Sessionx settings
-set -g @sessionx-bind 'o'
 
 
 # -- tpm -----------------------------------------------------------------------
@@ -421,7 +434,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 set -g @plugin 'egel/tmux-gruvbox'
-set -g @plugin 'omerxx/tmux-sessionx'
 
 # -- custom variables ----------------------------------------------------------
 
