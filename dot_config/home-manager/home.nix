@@ -69,6 +69,7 @@ in {
     latest.k9s # k8s tui tool
     latest.kondo # clean dev dirs
     latest.kubectl
+    latest.kustomize
     latest.lazygit
     latest.lsd # better ls tool
     ncurses
