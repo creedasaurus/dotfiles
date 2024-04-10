@@ -1,12 +1,13 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh :
-
+echo "dot zshrc"
 # PATHS
 source "$ZDOTDIR/setup_paths.zsh"
 
 # ZIM
 source "$ZDOTDIR/setup_zim.zsh"
 
+eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 

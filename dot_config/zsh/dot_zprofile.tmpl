@@ -1,20 +1,21 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh :
 
-{{- if eq .chezmoi.os "darwin" }}
-{{ output "brew" "shellenv" | trim }}
-path=(
-  $HOMEBREW_PREFIX/bin
-  $path
-)
-{{- end }}
+echo "dot zprofile"
 
-path=(
-  $HOME/.toolbox/bin
-  $HOME/.local/bin
-  $HOME/.rodar/bin
-  $HOME/.cargo/bin
-  $path
-)
-
-typeset -U path
+# {{- if eq .chezmoi.os "darwin" }}
+# path=(
+#   $HOMEBREW_PREFIX/bin
+#   $path
+# )
+# {{- end }}
+#
+# path=(
+#   $HOME/.toolbox/bin
+#   $HOME/.local/bin
+#   $HOME/.rodar/bin
+#   $HOME/.cargo/bin
+#   $path
+# )
+#
+# typeset -U path
