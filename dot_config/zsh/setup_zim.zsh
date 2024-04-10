@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # vim: set filetype=zsh :
-echo "setting up zim"
+
 # if zsh cache dir doesn't exist, create it
 if [ ! -d "$XDG_CACHE_HOME/zsh" ]; then
   mkdir -p "$XDG_CACHE_HOME/zsh"
