@@ -5,7 +5,6 @@ zmodule environment
 zmodule input
 zmodule run-help
 zmodule joke/zim-starship
-zmodule fzf
 zmodule git
 zmodule utility
 zmodule zsh-users/zsh-completions --fpath src

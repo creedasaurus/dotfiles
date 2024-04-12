@@ -24,7 +24,6 @@ in {
  home.packages = with pkgs; [
     latest.atuin # shell history sync
     bat # better CAT tool
-    latest.bfs
     bottom # another htop tool
     brotli # compression
     latest.broot # another file/folder tui
@@ -79,6 +78,8 @@ in {
     latest.natscli # tools for NATS server
     latest.neofetch
     latest.neovim
+    netcat-gnu
+    nmap
     latest.nushell # best query shell thing
     latest.oha # load tests
     latest.pdfcpu # work with PDFS
@@ -95,6 +96,7 @@ in {
     latest.src-cli # sourcegraph cli
     latest.starship # zsh prompt thing
     steampipe # query cloud resources
+    stern # tailing k8s logs made easier
     latest.tig # git backwards tui
     latest.tmux
     latest.tokei # lines of code tool
