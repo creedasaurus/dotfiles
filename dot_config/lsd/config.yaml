@@ -3,3 +3,8 @@
 # Possible values: default, short, bytes
 size: default
 
+blocks:
+  - user
+  - size
+  - date
+  - name

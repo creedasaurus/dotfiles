@@ -4,12 +4,12 @@
 zmodule environment
 zmodule input
 zmodule run-help
-zmodule joke/zim-starship
 zmodule git
 zmodule utility
 zmodule zsh-users/zsh-completions --fpath src
 zmodule nix-community/nix-zsh-completions --fpath .
 zmodule completion
+zmodule Aloxaf/fzf-tab
+zmodule Freed-Wu/fzf-tab-source
 zmodule zdharma-continuum/fast-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
-zmodule Aloxaf/fzf-tab

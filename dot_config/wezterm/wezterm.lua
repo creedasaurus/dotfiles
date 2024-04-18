@@ -6,7 +6,15 @@ if wezterm.config_builder then
 end
 
 -- Font type
-config.font = wezterm.font("MonaspiceNe Nerd Font Propo")
+-- config.font = wezterm.font("MonaspiceNe Nerd Font Propo")
+config.font = wezterm.font_with_fallback({
+	{
+		family = "JetBrainsMono Nerd Font Mono",
+		-- family = "JetBrains Mono",
+		harfbuzz_features = { "ss01", "ss02", "ss03", "ss06", "ss07", "ss08", "calt", "dlig" },
+	},
+	"FiraCode Nerd Font Mono",
+})
 config.font_size = 14.0
 
 -- Colors
@@ -14,7 +22,7 @@ config.color_scheme = "GruvboxDarkHard"
 
 -- Window frame font style
 config.window_frame = {
-	font = wezterm.font({ family = "MonaspiceNe Nerd Font Propo" }),
+	font = wezterm.font({ family = "JetBrainsMonoNL Nerd Font Propo" }),
 }
 
 config.scrollback_lines = 13000

@@ -24,6 +24,7 @@ in {
  home.packages = with pkgs; [
     latest.atuin # shell history sync
     bat # better CAT tool
+    latest.bfs # another find replacement, breadth-first search
     bottom # another htop tool
     brotli # compression
     latest.broot # another file/folder tui
@@ -97,6 +98,7 @@ in {
     latest.starship # zsh prompt thing
     steampipe # query cloud resources
     stern # tailing k8s logs made easier
+    tealdeer # rust TLDR client
     latest.tig # git backwards tui
     latest.tmux
     latest.tokei # lines of code tool

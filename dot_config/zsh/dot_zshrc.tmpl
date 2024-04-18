@@ -9,6 +9,7 @@ source "$ZDOTDIR/setup_fzf.zsh"
 # ZIM
 source "$ZDOTDIR/setup_zim.zsh"
 
+eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
@@ -20,6 +21,9 @@ export GOPROXY="direct"
 function mcurl() {
     /usr/bin/curl "$@" -L --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
 }
+
+# tldr client doesn't respect user set XDG directories yet
+export TEALDEER_CONFIG_DIR=~/.config/tealdeer
 
 ## work aliases
 alias bb='brazil-build'
