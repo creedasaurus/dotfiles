@@ -57,6 +57,7 @@ in {
     gnupg
     latest.golangci-lint
     latest.go-task
+    latest.gradle
     latest.graphviz
     latest.htop
     latest.hyperfine # benchmark commands
@@ -73,6 +74,7 @@ in {
     latest.lazygit
     latest.lsd # better ls tool
     ncurses
+    nixos-generators # tool for generating nixos configs
     less
     latest.mise # install languages
     latest.mosh # stay connected SSH tool
@@ -82,7 +84,7 @@ in {
     netcat-gnu
     nmap
     latest.nushell # best query shell thing
-    latest.oha # load tests
+    oha # load tests
     latest.pdfcpu # work with PDFS
     pipes # draw pipes on your screen
     protobuf
