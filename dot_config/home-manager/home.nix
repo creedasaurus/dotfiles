@@ -72,6 +72,7 @@ in {
     latest.kubectl
     latest.kustomize
     latest.lazygit
+    lolcat # cat with colors
     latest.lsd # better ls tool
     ncurses
     nixos-generators # tool for generating nixos configs
@@ -85,7 +86,9 @@ in {
     nmap
     latest.nushell # best query shell thing
     oha # load tests
+    opentofu
     latest.pdfcpu # work with PDFS
+    packer # build custom images
     pipes # draw pipes on your screen
     protobuf
     ranger # file/folder tui
