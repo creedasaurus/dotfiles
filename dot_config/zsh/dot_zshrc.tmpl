@@ -47,3 +47,6 @@ alias docker='nerdctl'
 {{- end }}
 
 alias k='kubectl'
+
+# kube krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
