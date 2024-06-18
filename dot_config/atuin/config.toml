@@ -13,15 +13,15 @@
 # dialect = "uk"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = true
 
 ## enable or disable automatic update checks
-# update_check = true
+update_check = true
 
 ## how often to sync history. note that this is only triggered when a command 
 ## is ran, so sync intervals may well be longer
 ## set it to 0 to sync after every command
-# sync_frequency = "5m"
+sync_frequency = "10m"
 
 ## address of the sync server
 sync_address = "https://atuin.vulf.haus"
@@ -34,6 +34,10 @@ filter_mode_shell_up_key_binding = "directory"
 ## possible values: auto, full, compact
 style = "auto"
 inline_height = 30
+
+# Sync V2
+[sync]
+records = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
