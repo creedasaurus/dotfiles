@@ -1,15 +1,15 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-cpu: 4
+cpu: 6
 
 # Size of the disk in GiB to be allocated to the virtual machine.
 # NOTE: changing this has no effect after the virtual machine has been created.
 # Default: 60
-disk: 60
+disk: 80
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-memory: 6
+memory: 10
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 # Default: host
@@ -33,7 +33,7 @@ kubernetes:
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases
   # Default: latest stable release
-  version: v1.27.1+k3s1
+  version: v1.30.2+k3s1
   
   # Additional args to pass to k3s https://docs.k3s.io/cli/server
   # Default: traefik is disabled
@@ -70,7 +70,8 @@ network:
   # EXAMPLE
   # dnsHosts:
   #   example.com: 1.2.3.4
-  dnsHosts: {}
+  dnsHosts:
+    host.docker.internal: host.lima.internal
 
 # ===================================================================== #
 # ADVANCED CONFIGURATION
@@ -153,9 +154,15 @@ cpuType: ""
 provision: []
 
 # Modify ~/.ssh/config automatically to include a SSH config for the virtual machine.
-# SSH config will still be generated in ~/.colima/ssh_config regardless.
+# SSH config will still be generated in $COLIMA_HOME/ssh_config regardless.
 # Default: true
 sshConfig: true
+
+# The port number for the SSH server for the virtual machine.
+# When set to 0, a random available port is used.
+#
+# Default: 0
+sshPort: 0
 
 # Configure volume mounts for the virtual machine.
 # Colima mounts user's home directory by default to provide a familiar
@@ -171,11 +178,7 @@ sshConfig: true
 # Colima default behaviour: $HOME and /tmp/colima are mounted as writable.
 # Default: []
 mounts:
-  - location: /Volumes/brazil-pkg-cache
-    writable: true
-  - location: ~/workplace
-    writable: true
-  - location: ~/personal
+  - location: ~/workspace
     writable: true
 
 # Environment variables for the virtual machine.

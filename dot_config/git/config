@@ -27,11 +27,11 @@
 	rebase = true
 
 [user]
-	email = creedasaurus@gmail.com
-	name = Creed Haymond
+  email = creedasaurus@gmail.com
+  name = Creed Haymond
 
-[includeIf "gitdir:/Volumes/workplace/"]
-  path = "~/.config/git/amazon_config"
+[includeIf "gitdir:/Users/creed.haymond/workspace/eos/"]
+  path = "~/.config/git/epic_config"
 
 [status]
   submoduleSummary = true

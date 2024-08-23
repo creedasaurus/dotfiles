@@ -25,28 +25,27 @@ eval "$(atuin init zsh)"
 export GOPROXY="direct"
 
 ## utilities
-function mcurl() {
-    /usr/bin/curl "$@" -L --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
-}
 
 # tldr client doesn't respect user set XDG directories yet
 export TEALDEER_CONFIG_DIR=~/.config/tealdeer
 
 ## work aliases
-alias bb='brazil-build'
-alias bbb='brc --allPackages brazil-build'
-alias brc='brazil-recursive-cmd'
-alias bws='brazil ws'
 alias gs='git status'
 alias la='lsd -la'
 
 {{- if eq .chezmoi.os "darwin" }}
-alias odin="ssh -N -L 2009:localhost:2009 haymd.aka.corp.amazon.com"
 # Replace docker with https://github.com/abiosoft/colima
-alias docker='nerdctl'
+#alias docker='nerdctl'
 {{- end }}
 
 alias k='kubectl'
 
 # kube krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+complete -o nospace -C /opt/homebrew/bin/vault vault
+

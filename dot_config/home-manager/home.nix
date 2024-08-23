@@ -22,12 +22,14 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
  home.packages = with pkgs; [
+    latest.act # run github actions locally
     latest.atuin # shell history sync
     bat # better CAT tool
     latest.bfs # another find replacement, breadth-first search
     bottom # another htop tool
     brotli # compression
     latest.broot # another file/folder tui
+    btop # another cool top program
     latest.buf # generate/manage/lint protobufs
     caddy # local https server
     latest.chezmoi # managing dotfiles
@@ -37,6 +39,7 @@ in {
     delta # diff with nice colors
     d2 # diagram generating tool
     latest.direnv
+    dive # docker image inspection
     doggo # DNS client for humans
     dos2unix # convert files that were DOS to unix
     latest.dua # directory size tool
@@ -49,6 +52,7 @@ in {
     latest.fzf # fuzzy finder
     latest.ffmpeg
     fpp
+    fx # terminal JSON viewer
     gawk
     latest.gh
     latest.git
@@ -69,6 +73,7 @@ in {
     latest.k6 # load tests
     latest.k9s # k8s tui tool
     latest.kondo # clean dev dirs
+    krew # k8s plugin control
     latest.kubectl
     latest.kustomize
     latest.lazygit
@@ -119,7 +124,6 @@ in {
     wget
     latest.yazi
     latest.yq-go
-    latest.yt-dlp
     latest.zellij # like another tmux
     zenith # another htop but with graphs
     zip

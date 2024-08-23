@@ -17,7 +17,6 @@ set -eufo pipefail
 
 {{- if eq .chezmoi.os "darwin" }}
 {{-  $taps = concat $taps (list
-    "homebrew/cask-fonts"
     "koekeishiya/formulae") -}}
 {{-  $casks = concat $casks (list
     "1password"
@@ -45,7 +44,6 @@ set -eufo pipefail
     "font-mononoki-nerd-font"
     "font-ubuntu-mono-nerd-font"
     "fork"
-    "google-chrome"
     "hammerspoon"
     "iterm2"
     "jetbrains-toolbox"
@@ -59,7 +57,6 @@ set -eufo pipefail
     "raspberry-pi-imager"
     "rectangle"
     "scroll-reverser"
-    "slack"
     "spotify"
     "stretchly"
     "sublime-text"
@@ -68,8 +65,7 @@ set -eufo pipefail
     "vlc"
     "wezterm"
     "xcodes"
-    "zed"
-    "zoom") -}}
+    "zed") -}}
 
 {{-  $vscodes = concat $vscodes (list
     "amazonwebservices.aws-toolkit-vscode"
@@ -82,7 +78,6 @@ set -eufo pipefail
 
 {{- $brews = concat $brews (list
     "colima"
-    "skhd"
 )}}
 
 {{- else }}
