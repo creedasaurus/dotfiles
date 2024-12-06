@@ -62,14 +62,15 @@ in {
     latest.golangci-lint
     latest.go-task
     latest.gradle
-    latest.graphviz
+    # graphviz
     latest.htop
     latest.hyperfine # benchmark commands
     latest.jaq # another JSON tool
-    latest.jc # convert common filetyles to structured JSON
+    # latest.jc # convert common filetyles to structured JSON
     latest.jq # ALL the json/yaml things
     # joshuto # another ranger like terminal file navigator
     latest.just
+    latest.jwt-cli # inspect jwt 
     latest.k6 # load tests
     latest.k9s # k8s tui tool
     latest.kondo # clean dev dirs
@@ -79,11 +80,11 @@ in {
     latest.lazygit
     lolcat # cat with colors
     latest.lsd # better ls tool
-    ncurses
     nixos-generators # tool for generating nixos configs
     less
+    latest.minikube # little k8s locally
     latest.mise # install languages
-    latest.mosh # stay connected SSH tool
+    mosh # stay connected SSH tool
     latest.natscli # tools for NATS server
     latest.neofetch
     latest.neovim
@@ -91,11 +92,11 @@ in {
     nmap
     latest.nushell # best query shell thing
     oha # load tests
-    opentofu
-    latest.pdfcpu # work with PDFS
+    latest.opentofu
+    pdfcpu # work with PDFS
     pipes # draw pipes on your screen
     protobuf
-    ranger # file/folder tui
+    # ranger # file/folder tui
     latest.ripgrep # search text fast
     rclone
     rsync
@@ -106,7 +107,7 @@ in {
     latest.sqlite
     latest.src-cli # sourcegraph cli
     latest.starship # zsh prompt thing
-    steampipe # query cloud resources
+    # steampipe # query cloud resources
     stern # tailing k8s logs made easier
     tealdeer # rust TLDR client
     latest.tig # git backwards tui
@@ -119,7 +120,7 @@ in {
     latest.units
     unzip
     latest.up # pipe commands with live preview
-    latest.urlscan
+    # latest.urlscan
     unixtools.watch
     wget
     latest.yazi

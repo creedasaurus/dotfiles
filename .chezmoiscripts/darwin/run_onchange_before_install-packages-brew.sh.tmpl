@@ -4,13 +4,21 @@ set -eufo pipefail
 
 {{ $taps := list
     "1password/tap"
+    "dagger/tap"
+    "hashicorp/tap"
     "creedasaurus/gprox"
-    "sdkman/tap" -}}
+    "sdkman/tap" 
+    "turbot/tap" -}}
 
 {{ $brews := list
+    "dagger/tap/dagger"
+    "deno"
+    "hashicorp/tap/packer"
     "mint"
     "openssl"
-    "trash" -}}
+    "steampipe"
+    "trash"
+    "uv" -}}
 
 {{- $casks := list }}
 {{- $vscodes := list }}
@@ -30,6 +38,7 @@ set -eufo pipefail
     "bruno"
     "chromedriver"
     "darktable"
+    "dbeaver-community"
     "discord"
     "element"
     "figma"
@@ -62,6 +71,7 @@ set -eufo pipefail
     "sublime-text"
     "tuist"
     "visual-studio-code"
+    "visualvm"
     "vlc"
     "wezterm"
     "xcodes"
