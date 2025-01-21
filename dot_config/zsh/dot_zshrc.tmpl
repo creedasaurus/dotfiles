@@ -47,5 +47,12 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+
+# setup hashicorp autocomplete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 complete -o nospace -C /opt/homebrew/bin/vault vault
+
+# buildpack completion
+. $(pack completion --shell zsh)
 

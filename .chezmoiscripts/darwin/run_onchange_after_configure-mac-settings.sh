@@ -10,6 +10,6 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 
 defaults write com.apple.dock autohide -bool true
 
-# For the VSCode VIM plugin
+# For the VSCode & Intellij VIM plugin
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false

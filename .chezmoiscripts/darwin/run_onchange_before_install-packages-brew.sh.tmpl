@@ -4,21 +4,49 @@ set -eufo pipefail
 
 {{ $taps := list
     "1password/tap"
+    "buildpacks/tap"
+    "confluentinc/tap"
     "dagger/tap"
+    "derailed/k9s"
     "hashicorp/tap"
+    "kcl-lang/tap"
     "creedasaurus/gprox"
-    "sdkman/tap" 
+    "redpanda-data/tap"
+    "sdkman/tap"
+    "warrensbox/tap"
     "turbot/tap" -}}
 
 {{ $brews := list
+    "substrate/tap/aop"
+    "atuin"
+    "awscli@2"
+    "bat"
+    "confluentinc/tap/cli"
     "dagger/tap/dagger"
     "deno"
-    "hashicorp/tap/packer"
+    "doggo"
+    "gradle-completion"
+    "helm"
+    "derailed/k9s/k9s"
+    "kcl-lang/tap/kcl"
+    "kcl-lang/tap/kcl-lsp"
+    "substrate/tap/ixm"
+    "krew"
+    "luarocks"
     "mint"
+    "mise"
     "openssl"
+    "buildpacks/tap/pack"
+    "hashicorp/tap/packer"
+    "redpanda-data/tap/redpanda"
     "steampipe"
+    "hashicorp/tap/terraform"
+    "warrensbox/tap/tfswitch"
     "trash"
-    "uv" -}}
+    "uv"
+    "hashicorp/tap/vault"
+    "zsh"
+    "zlib" -}}
 
 {{- $casks := list }}
 {{- $vscodes := list }}
@@ -53,6 +81,7 @@ set -eufo pipefail
     "font-mononoki-nerd-font"
     "font-ubuntu-mono-nerd-font"
     "fork"
+    "ghostty"
     "hammerspoon"
     "iterm2"
     "jetbrains-toolbox"
@@ -62,6 +91,7 @@ set -eufo pipefail
     "microsoft-edge"
     "obs"
     "obsidian"
+    "postman"
     "raycast"
     "raspberry-pi-imager"
     "rectangle"
@@ -105,6 +135,7 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($taps | sortAlpha | uniq) -}}
 tap "{{ . }}"
 {{ end -}}
+tap "substrate/tap", "git@github.ol.epicgames.net:substrate/homebrew-tap.git"
 
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"

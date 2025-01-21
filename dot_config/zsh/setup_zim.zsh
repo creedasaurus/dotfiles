@@ -6,6 +6,11 @@ if [ ! -d "$XDG_CACHE_HOME/zsh" ]; then
   mkdir -p "$XDG_CACHE_HOME/zsh"
 fi
 
+# if zsh data dir doesn't exist, create it
+if [ ! -d "$XDG_DATA_HOME/zsh" ]; then
+  mkdir -p "$XDG_DATA_HOME/zsh"
+fi
+
 zstyle ':zim:zmodule' use 'degit'
 zstyle ':zim:completion' dumpfile ${XDG_CACHE_HOME}/zsh/zcompdump
 zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache

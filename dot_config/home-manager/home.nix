@@ -17,37 +17,37 @@ in {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
  home.packages = with pkgs; [
     latest.act # run github actions locally
-    latest.atuin # shell history sync
-    bat # better CAT tool
+    # latest.atuin # shell history sync - BREW
+    # bat # better CAT tool - BREW
     latest.bfs # another find replacement, breadth-first search
-    bottom # another htop tool
+    # bottom # another htop tool
     brotli # compression
-    latest.broot # another file/folder tui
-    btop # another cool top program
-    latest.buf # generate/manage/lint protobufs
-    caddy # local https server
-    latest.chezmoi # managing dotfiles
+    # latest.broot # another file/folder tui
+    # btop # another cool top program
+    # latest.buf # generate/manage/lint protobufs
+    # caddy # local https server
+    # latest.chezmoi # managing dotfiles
     cmakeMinimal # cmake and tools
-    croc # another scp
-    latest.curl
-    delta # diff with nice colors
-    d2 # diagram generating tool
+    # croc # another scp
+    # latest.curl
+    # delta # diff with nice colors
+    # d2 # diagram generating tool
     latest.direnv
     dive # docker image inspection
-    doggo # DNS client for humans
+    # doggo # DNS client for humans
     dos2unix # convert files that were DOS to unix
-    latest.dua # directory size tool
-    duf
-    latest.du-dust
+    # latest.dua # directory size tool
+    # duf
+    # latest.du-dust
     eternal-terminal # terminal session reconnect
     latest.fastmod
-    latest.fd # fast folder search
+    # latest.fd # fast folder search
     fswatch
     latest.fzf # fuzzy finder
     latest.ffmpeg
@@ -70,11 +70,11 @@ in {
     latest.jq # ALL the json/yaml things
     # joshuto # another ranger like terminal file navigator
     latest.just
-    latest.jwt-cli # inspect jwt 
+    latest.jwt-cli # inspect jwt
     latest.k6 # load tests
-    latest.k9s # k8s tui tool
+    # latest.k9s # k8s tui tool -- maybe use brew
     latest.kondo # clean dev dirs
-    krew # k8s plugin control
+    # krew # k8s plugin control -- maybe use brew
     latest.kubectl
     latest.kustomize
     latest.lazygit
@@ -83,7 +83,7 @@ in {
     nixos-generators # tool for generating nixos configs
     less
     latest.minikube # little k8s locally
-    latest.mise # install languages
+    # latest.mise # install languages -- maybe will use brew for this
     mosh # stay connected SSH tool
     latest.natscli # tools for NATS server
     latest.neofetch
@@ -128,7 +128,7 @@ in {
     latest.zellij # like another tmux
     zenith # another htop but with graphs
     zip
-    zlib
+    # zlib - BREW
     latest.zoxide # best CD command helper
     latest.zsh
     latest.xz
