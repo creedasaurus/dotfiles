@@ -3,9 +3,6 @@
 
 theme = GruvboxDarkHard
 
-background-opacity = 0.90
-background-blur-radius = 30
-
 font-size = 14
 font-family = "JetBrainsMono Nerd Font Mono"
 font-thicken = true

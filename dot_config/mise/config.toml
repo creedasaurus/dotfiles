@@ -2,19 +2,25 @@
 [tools]
 
 node = ['22', '20', '18']
-python = ['3', '3.8', '3.11']
+python = ['3', '3.8', '3.11', '3.12']
 ruby = ['3']
 go = ['1.23']
-java = ['corretto-21', 'corretto-23', 'corretto-17', 'corretto-11', 'corretto-8']
+java = ['corretto-21', 'corretto-23', 'corretto-24', 'corretto-17', 'corretto-11', 'corretto-8']
 gradle = ['8', '7', '6']
+maven = ['4.0.0-rc-3', '3.9.9']
 scala = ['3', '2.13', '2.12']
 elixir = ['1.17']
 erlang = ['27']
 usage = "latest"
 
 [alias.java.versions]
+'24' = 'corretto-24'
 '23' = 'corretto-23'
 '21' = 'corretto-21'
 '17' = 'corretto-17'
 '11' = 'corretto-11'
 '8' = 'corretto-8'
+
+[settings]
+idiomatic_version_file_enable_tools = []
+

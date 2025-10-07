@@ -27,8 +27,8 @@
 	rebase = true
 
 [user]
-    email = "creed.haymond@epicgames.com"
-    name = "Creed Haymond"
+	email = creed.haymond@epicgames.com
+	name = Creed Haymond
 
 [includeIf "gitdir:/Users/creed.haymond/workspace/creedasaurus/"]
   path = "~/.config/git/personal_config"

@@ -1,20 +1,15 @@
+-- Setup Gruvbox theme
+
 return {
+  -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",
     opts = {
-      contrast = "hard",
-      palette_overrides = {
-        dark0_hard = "#1b1b1b",
-      },
       transparent_mode = true,
+      contrast = "hard",
     },
   },
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      background_colour = "#1b1b1b",
-    },
-  },
+
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",

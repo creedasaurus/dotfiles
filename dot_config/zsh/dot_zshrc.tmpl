@@ -22,7 +22,7 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
 ## Langs
-export GOPROXY="direct"
+#export GOPROXY="direct"
 
 ## utilities
 
@@ -35,7 +35,7 @@ alias la='lsd -la'
 
 {{- if eq .chezmoi.os "darwin" }}
 # Replace docker with https://github.com/abiosoft/colima
-#alias docker='nerdctl'
+# alias docker='podman'
 {{- end }}
 
 alias k='kubectl'

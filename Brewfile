@@ -5,13 +5,21 @@ tap "bufbuild/buf"
 tap "confluentinc/tap"
 tap "creedasaurus/gprox"
 tap "dagger/tap"
+tap "MisterTea/et"
 tap "derailed/k9s"
+tap "go-task/tap"
 tap "hashicorp/tap"
+tap "mike-engel/jwt-cli"
 tap "kcl-lang/tap"
 tap "koekeishiya/formulae"
+tap "localstack/tap"
+tap "nats-io/nats-tools"
 tap "redpanda-data/tap"
+tap "robusta-dev/homebrew-krr"
 tap "sdkman/tap"
-tap "turbot/tap"
+tap "quarkusio/tap"
+tap "sourcegraph/src-cli"
+tap "turbot/tap" # steampipe tap
 tap "warrensbox/tap"
 tap "substrate/tap", "git@github.ol.epicgames.net:substrate/homebrew-tap.git"
 
@@ -20,6 +28,7 @@ tap "substrate/tap", "git@github.ol.epicgames.net:substrate/homebrew-tap.git"
 brew "atuin" # Shell history sync and stats
 brew "awscli@2" # AWS cli
 brew "bat" # a better 'cat'
+brew "bfs" # breadth-first version of find
 brew "bottom" # HTOP alternative
 brew "broot" # file/folder navigation CLI TUI
 brew "btop" # another HTOP alternative
@@ -27,6 +36,7 @@ brew "buildpacks/tap/pack" # buildpacks
 brew "bufbuild/buf/buf" # proto gen cli tool
 brew "caddy" # awesome webserver w/ auto HTTPS
 brew "chezmoi" # Dotfiles manager!
+brew "cmake"
 brew "colima" # docker alternative
 brew "confluentinc/tap/cli" # confluent (work)
 brew "croc" # scp alternative
@@ -34,34 +44,118 @@ brew "curl"
 brew "d2" # diagrams as code tool
 brew "dagger/tap/dagger" # dagger CI cli tool
 brew "deno" # another JS/TS runtime
-brew "derailed/k9s/k9s" # Kubernetes cli dashboard tool
+brew "dive" # docker image explorer
 brew "doggo" # a better DNS tool, dig alternative
+brew "dos2unix" # convert line endings
 brew "dua-cli" # disk usage analyzer
+brew "duckdb" # query ALL the things
 brew "duf" # a better `df`
 brew "dust" # a better `du`
+brew "MisterTea/et/et" # eternal terminal
+brew "fastmod" # codemod alternative
 brew "fd" # a better `find`
+brew "ffmpeg"
+brew "fswatch" # file system watcher
+brew "fpp" # file path picker
+brew "fx" # JSON viewer
+brew "fzf" # fuzzy finder
+brew "gawk"
+brew "gh" # GitHub CLI
+brew "git"
 brew "git-delta" # best git diff ever
+brew "gitui" # git TUI
+brew "git-lfs"
+brew "gnupg"
+brew "golangci-lint"
+brew "go-task/tap/go-task" # task runner
 brew "gradle-completion" # gradle zsh completions
 brew "hashicorp/tap/packer" # create vm images
-brew "hashicorp/tap/terraform"
+# tfswitch conflicts with this
+# brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/vault"
 brew "helm" # k8s package manager
+brew "htop"
+brew "hyperfine" # benchmarking tool
+brew "imagemagick"
+brew "jaq" # jq alternative for correctness
+brew "jc" # JSON config file CLI parser
+brew "jj" # jujutsu vcs
+brew "jq" # THE json cli parser
+brew "just" # just another task runner
+brew "mike-engel/jwt-cli/jwt-cli" # JWT cli tool
+brew "k6"
+brew "derailed/k9s/k9s" # Kubernetes cli dashboard tool
 brew "kcl-lang/tap/kcl" # new config validation language
 brew "kcl-lang/tap/kcl-lsp" # LSP for that ^
+brew "kondo" # project cleanup tool
 brew "krew" # kubectl plugin manager
+brew "quarkusio/tap/quarkus"
+brew "robusta-dev/homebrew-krr/krr" # k8s resource recommendations
+brew "kustomize"
+brew "lazygit" # git TUI
+brew "less"
+brew "localstack/tap/localstack-cli" # local AWS stack
+brew "lolcat" # colorized cat
 brew "luarocks" # lua dependencies?
+brew "lsd" # a better `ls`
+brew "minikube"
 brew "mint" # macos Swift tool package manager?
 brew "mise" # dir-based language runtime shim tool
+brew "mosh" # stay-connect SSH
+brew "nats-io/nats-tools/nats"
+brew "neofetch"
+brew "neovim"
+brew "netcat"
+brew "nmap"
+brew "nushell" # a totally amazing shell
+brew "oha" # HTTP load tester
 brew "openssl"
+brew "opentofu" # terraform alternative
+brew "pdfcpu" # PDF manipulation tool
+brew "pipes-sh" # pipes in your terminal
+brew "poppler" # PDF rendering lib
+brew "protobuf"
+brew "ripgrep"
+brew "rclone"
+brew "rsync"
+brew "rustscan"
 brew "redpanda-data/tap/redpanda" # kafka and connect alternative
+brew "scc" # LOC counter
+brew "sevenzip" # 7zip
+brew "shfmt" # shell formatter
 brew "steampipe" # query all the cloud things!
+brew "sqlite"
+brew "sourcegraph/src-cli/src-cli" # sourcegraph cli
 brew "substrate/tap/aop" # EPIC GAMES cloud setup tool
 brew "substrate/tap/ixm" # EPIC GAMES network management tool
+brew "starship" # shell prompt
+brew "stern" # k8s log viewer
+brew "tealdeer" # tldr alternative
+brew "tig" # git TUI
+brew "tmux"
+brew "tokei" # code line counter
 brew "trash" # safe 'rm' tool
+brew "tree" # file tree viewer
+brew "tree-sitter" # code parser
+brew "trippy" # network diagnostic tool
+brew "ugrep"
+brew "gnu-units" # unit conversion tool
+brew "unzip"
 brew "uv" # python package manager thing?
+brew "up" # live CLI pipe viewer
+brew "viddy" # modern `watch` command
+brew "watch" # exec periodically
+brew "wget"
 brew "warrensbox/tap/tfswitch" # switch Terraform versions based on project
+brew "yazi" # terminal file manager
+brew "yq" # YAML parser
+brew "zellij" # fancy tmux thing
+brew "zenith" # fancy HTOP thing
+brew "zip"
 brew "zlib"
+brew "zoxide" # fancy `cd` tool
 brew "zsh"
+brew "xz"
 
 # CASKS
 
@@ -75,7 +169,7 @@ cask "balenaetcher" # USB iso flasher
 cask "brave-browser" # browser
 cask "bruno" # API testing tool
 cask "chromedriver" # remote control chrome (integ test thing)
-cask "darktable" # open-source Lightroom alternative
+# cask "darktable" # open-source Lightroom alternative
 cask "dbeaver-community" # Database query tool
 cask "discord" # chat
 cask "element" # chat
@@ -88,8 +182,10 @@ cask "font-fira-mono-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-im-writing-nerd-font"
 cask "font-jetbrains-mono-nerd-font" # <- most used font currently
+cask "font-meslo-lg-nerd-font"
 cask "font-mononoki-nerd-font"
 cask "font-ubuntu-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
 cask "fork" # awesome git tool
 cask "ghostty" # <- most used terminal emulator
 cask "hammerspoon" # shortcut creator? Haven't used much.

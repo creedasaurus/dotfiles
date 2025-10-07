@@ -22,116 +22,116 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
  home.packages = with pkgs; [
-    latest.act # run github actions locally
+    # latest.act # run github actions locally
     # latest.atuin # shell history sync - BREW
     # bat # better CAT tool - BREW
-    latest.bfs # another find replacement, breadth-first search
+    # latest.bfs # another find replacement, breadth-first search
     # bottom # another htop tool
-    brotli # compression
+    # brotli # compression
     # latest.broot # another file/folder tui
     # btop # another cool top program
     # latest.buf # generate/manage/lint protobufs
     # caddy # local https server
     # latest.chezmoi # managing dotfiles
-    cmakeMinimal # cmake and tools
+    # cmakeMinimal # cmake and tools
     # croc # another scp
     # latest.curl
     # delta # diff with nice colors
     # d2 # diagram generating tool
-    latest.direnv
-    dive # docker image inspection
+    # latest.direnv
+    # dive # docker image inspection
     # doggo # DNS client for humans
-    dos2unix # convert files that were DOS to unix
+    # dos2unix # convert files that were DOS to unix
     # latest.dua # directory size tool
     # duf
     # latest.du-dust
-    eternal-terminal # terminal session reconnect
-    latest.fastmod
+    # eternal-terminal # terminal session reconnect
+    # latest.fastmod
     # latest.fd # fast folder search
-    fswatch
-    latest.fzf # fuzzy finder
-    latest.ffmpeg
-    fpp
-    fx # terminal JSON viewer
-    gawk
-    latest.gh
-    latest.git
-    latest.gitui
-    latest.git-lfs
-    gnupg
-    latest.golangci-lint
-    latest.go-task
-    latest.gradle
+    # fswatch
+    # latest.fzf # fuzzy finder
+    # latest.ffmpeg
+    # fpp
+    # fx # terminal JSON viewer
+    # gawk
+    # latest.gh
+    # latest.git
+    # latest.gitui
+    # latest.git-lfs
+    # gnupg
+    # latest.golangci-lint
+    # latest.go-task
+    # latest.gradle
     # graphviz
-    latest.htop
-    latest.hyperfine # benchmark commands
-    latest.jaq # another JSON tool
+    # latest.htop
+    # latest.hyperfine # benchmark commands
+    # latest.jaq # another JSON tool
     # latest.jc # convert common filetyles to structured JSON
-    latest.jq # ALL the json/yaml things
+    # latest.jq # ALL the json/yaml things
     # joshuto # another ranger like terminal file navigator
-    latest.just
-    latest.jwt-cli # inspect jwt
-    latest.k6 # load tests
+    # latest.just
+    # latest.jwt-cli # inspect jwt
+    # latest.k6 # load tests
     # latest.k9s # k8s tui tool -- maybe use brew
-    latest.kondo # clean dev dirs
+    # latest.kondo # clean dev dirs
     # krew # k8s plugin control -- maybe use brew
-    latest.kubectl
-    latest.kustomize
-    latest.lazygit
-    lolcat # cat with colors
-    latest.lsd # better ls tool
+    # latest.kubectl
+    # latest.kustomize
+    # latest.lazygit
+    # lolcat # cat with colors
+    # latest.lsd # better ls tool
     nixos-generators # tool for generating nixos configs
-    less
-    latest.minikube # little k8s locally
+    # less
+    # latest.minikube # little k8s locally
     # latest.mise # install languages -- maybe will use brew for this
-    mosh # stay connected SSH tool
-    latest.natscli # tools for NATS server
-    latest.neofetch
-    latest.neovim
-    netcat-gnu
-    nmap
-    latest.nushell # best query shell thing
-    oha # load tests
-    latest.opentofu
-    pdfcpu # work with PDFS
-    pipes # draw pipes on your screen
-    protobuf
+    # mosh # stay connected SSH tool
+    # latest.natscli # tools for NATS server
+    # latest.neofetch
+    # latest.neovim
+    # netcat-gnu
+    # nmap
+    # latest.nushell # best query shell thing
+    # oha # load tests
+    # latest.opentofu
+    # pdfcpu # work with PDFS
+    # pipes # draw pipes on your screen
+    # protobuf
     # ranger # file/folder tui
-    latest.ripgrep # search text fast
-    rclone
-    rsync
-    latest.rustscan # network port scanning tool
-    latest.rustup
-    latest.scc # lines of code and cost associated
-    latest.shfmt
-    latest.sqlite
-    latest.src-cli # sourcegraph cli
-    latest.starship # zsh prompt thing
+    # latest.ripgrep # search text fast
+    # rclone
+    # rsync
+    # latest.rustscan # network port scanning tool
+    # latest.rustup
+    # latest.scc # lines of code and cost associated
+    # latest.shfmt
+    # latest.sqlite
+    # latest.src-cli # sourcegraph cli
+    # latest.starship # zsh prompt thing
     # steampipe # query cloud resources
-    stern # tailing k8s logs made easier
-    tealdeer # rust TLDR client
-    latest.tig # git backwards tui
-    latest.tmux
-    latest.tokei # lines of code tool
-    tree
-    latest.tree-sitter
-    latest.trippy # round trip network tool
-    latest.ugrep # yet another grep
-    latest.units
-    unzip
-    latest.up # pipe commands with live preview
+    # stern # tailing k8s logs made easier
+    # tealdeer # rust TLDR client
+    # latest.tig # git backwards tui
+    # latest.tmux
+    # latest.tokei # lines of code tool
+    # tree
+    # latest.tree-sitter
+    # latest.trippy # round trip network tool
+    # latest.ugrep # yet another grep
+    # latest.units
+    # unzip
+    # latest.up # pipe commands with live preview
     # latest.urlscan
-    unixtools.watch
-    wget
-    latest.yazi
-    latest.yq-go
-    latest.zellij # like another tmux
-    zenith # another htop but with graphs
-    zip
+    # unixtools.watch
+    # wget
+    # latest.yazi
+    # latest.yq-go
+    # latest.zellij # like another tmux
+    # zenith # another htop but with graphs
+    # zip
     # zlib - BREW
-    latest.zoxide # best CD command helper
+    # latest.zoxide # best CD command helper
     latest.zsh
-    latest.xz
+    # latest.xz
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
