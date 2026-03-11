@@ -39,7 +39,7 @@ config.window_padding = {
 	top = "0.2cell",
 	bottom = "0.2cell",
 }
-config.window_background_opacity = 0.93
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 30
 
 config.hide_tab_bar_if_only_one_tab = true

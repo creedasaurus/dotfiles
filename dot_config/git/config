@@ -39,3 +39,8 @@
 [status]
   submoduleSummary = true
 
+[diff]
+  colorMoved = default
+
+[url "git@github.ol.epicgames.net:"]
+  insteadOf = https://github.ol.epicgames.net/

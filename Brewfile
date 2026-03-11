@@ -70,8 +70,7 @@ brew "golangci-lint"
 brew "go-task/tap/go-task" # task runner
 brew "gradle-completion" # gradle zsh completions
 brew "hashicorp/tap/packer" # create vm images
-# tfswitch conflicts with this
-# brew "hashicorp/tap/terraform"
+# brew "hashicorp/tap/terraform", link: false
 brew "hashicorp/tap/vault"
 brew "helm" # k8s package manager
 brew "htop"
@@ -127,7 +126,6 @@ brew "steampipe" # query all the cloud things!
 brew "sqlite"
 brew "sourcegraph/src-cli/src-cli" # sourcegraph cli
 brew "substrate/tap/aop" # EPIC GAMES cloud setup tool
-brew "substrate/tap/ixm" # EPIC GAMES network management tool
 brew "starship" # shell prompt
 brew "stern" # k8s log viewer
 brew "tealdeer" # tldr alternative
@@ -193,7 +191,6 @@ cask "iterm2" # terminal emulator
 cask "jetbrains-toolbox" # install all the Jetbrains stuff
 cask "kap" # screen-cap utility
 cask "karabiner-elements" # keyboard remapping tool
-cask "keepingyouawake" # keep computer from sleeping
 cask "microsoft-edge" # browser
 cask "obs" # streaming software
 cask "obsidian" # note taking stuff

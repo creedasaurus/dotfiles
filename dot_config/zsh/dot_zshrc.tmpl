@@ -11,15 +11,20 @@ fi
 # PATHS
 source "$ZDOTDIR/setup_paths.zsh"
 
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+
 source "$ZDOTDIR/setup_fzf.zsh"
 
-# ZIM
-source "$ZDOTDIR/setup_zim.zsh"
+  # ZIM
+  source "$ZDOTDIR/setup_zim.zsh"
+  
+  eval "$(starship init zsh)"
+  eval "$(zoxide init zsh)"
+  eval "$(atuin init zsh)"
 
-eval "$(starship init zsh)"
+fi
+
 eval "$(mise activate zsh)"
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
 
 ## Langs
 #export GOPROXY="direct"
@@ -50,8 +55,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # setup hashicorp autocomplete
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 complete -o nospace -C /opt/homebrew/bin/vault vault
+complete -o nospace -C /opt/homebrew/bin/tofu terraform
+complete -o nospace -C /opt/homebrew/bin/tofu tofu
 
 # buildpack completion
 . $(pack completion --shell zsh)
