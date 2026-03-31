@@ -4,5 +4,3 @@ pager = "bat"
     pager = "delta"
 [edit]
     command = "nvim"
-[git]
-    autoCommit = true
