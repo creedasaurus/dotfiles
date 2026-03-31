@@ -2,6 +2,6 @@
 
 set -eufo pipefail
 
-# home-manager file hash: {{ joinPath .chezmoi.sourceDir "Brewfile" | include | sha256sum }}
+# Brewfile hash: {{ joinPath .chezmoi.sourceDir "Brewfile" | include | sha256sum }}
 
 brew bundle --file {{ joinPath .chezmoi.sourceDir "Brewfile" }}

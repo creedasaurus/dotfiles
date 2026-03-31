@@ -5,4 +5,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# Epic credentials - rendered by chezmoi from 1Password into secrets.zsh
+if [ -f "$XDG_CONFIG_HOME/zsh/secrets.zsh" ]; then
+  source "$XDG_CONFIG_HOME/zsh/secrets.zsh"
+fi
+
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

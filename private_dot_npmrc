@@ -1,0 +1,2 @@
+registry=https://artifacts.ol.epicgames.net/artifactory/api/npm/npm-all/
+//artifacts.ol.epicgames.net/artifactory/api/npm/npm-all/:_auth=${NODE_AUTH_TOKEN}

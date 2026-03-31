@@ -16,6 +16,7 @@ zstyle ':zim:completion' dumpfile ${XDG_CACHE_HOME}/zsh/zcompdump
 zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache
 
 ZIM_HOME=$XDG_CONFIG_HOME/zim
+ZIM_CONFIG_FILE="$ZDOTDIR/.zimrc"
 
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then

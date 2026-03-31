@@ -5,9 +5,9 @@ zmodule environment
 zmodule input
 zmodule run-help
 zmodule git
+zmodule termtitle
 zmodule utility
 zmodule zsh-users/zsh-completions --fpath src
-zmodule nix-community/nix-zsh-completions --fpath .
 zmodule completion
 zmodule Aloxaf/fzf-tab
 zmodule Freed-Wu/fzf-tab-source

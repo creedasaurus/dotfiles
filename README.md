@@ -4,7 +4,7 @@ These files are for setting up my machines. Please dont use them except to just 
 
 ### Chezmoi
 
-After trying out a few different forms of dotfile management, I actually settled on [`chezmoi`](https://www.chezmoi.io) (for now). I gave `nix` a try for awhile and also `dotbot`, and very briefly some others including my own scripts. I actually tried and decided against `chezmoi` awhile back, but tried it out again recently and decided it was a good balance of the things I wanted my dotfiles manager to do.
+After trying out a few different forms of dotfile management, I settled on [`chezmoi`](https://www.chezmoi.io). I tried `nix`, `dotbot`, and a few others including my own scripts. Chezmoi has been a good balance of the things I want my dotfiles manager to do.
 
 Make sure to read the [`chezmoi`](https://www.chezmoi.io) docs, but to get started really quick, you can just run:
 
@@ -23,6 +23,5 @@ e.g.
 ```
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
-.config/yabai
 {{ end }}
 ```
