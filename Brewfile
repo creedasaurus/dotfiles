@@ -140,6 +140,7 @@ brew "rsync"
 brew "rustscan"
 brew "redpanda-data/tap/redpanda" # kafka and connect alternative
 brew "scc" # LOC counter
+brew "skopeo" # remote OCI image helper
 brew "sevenzip" # 7zip
 brew "shfmt" # shell formatter
 brew "steampipe" # query all the cloud things!
