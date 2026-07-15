@@ -76,6 +76,7 @@ brew "gnu-sed"
 brew "golangci-lint"
 brew "googleworkspace-cli"
 brew "graphviz"
+brew "grafanactl" # grafana cli
 brew "go-task/tap/go-task" # task runner
 brew "gradle-completion" # gradle zsh completions
 brew "hadolint"            # Dockerfile linter
@@ -126,6 +127,7 @@ brew "neovim"
 brew "netcat"
 brew "nmap"
 brew "nushell" # a totally amazing shell
+brew "carapace" # multi-shell completion engine
 brew "oha" # HTTP load tester
 brew "openssl"
 brew "opentofu" # terraform alternative
@@ -167,7 +169,6 @@ brew "up" # live CLI pipe viewer
 brew "viddy" # modern `watch` command
 brew "watch" # exec periodically
 brew "wget"
-brew "warrensbox/tap/tfswitch" # switch Terraform versions based on project
 brew "yarn"
 brew "yazi" # terminal file manager
 brew "yq" # YAML parser
@@ -232,6 +233,7 @@ cask "scroll-reverser" # Reverse scroll on trackpad vs mouse
 cask "spotify" # music
 cask "stretchly" # get up and look away from screen periodically
 cask "sublime-text" # text editor
+cask "warrensbox/tap/tfswitch" # switch Terraform versions based on project
 cask "tuist" # iOS project helper thing
 cask "visual-studio-code" # code editor
 cask "visualvm" # JVM debugging tool
